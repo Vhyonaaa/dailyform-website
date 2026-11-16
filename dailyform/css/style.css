@@ -1,0 +1,110 @@
+:root {
+  --df-nav-bg: #DDC8BA;
+  --df-page-bg: #F8F5EE;
+  --df-brown: #68513C;
+  --df-text: #0D0A07;
+  --df-btn-bg: #F8F5EE;
+}
+
+body {
+  background-color: var(--df-page-bg);
+  font-family: "Jost", sans-serif;
+  color: var(--df-text);
+}
+
+/* ----- Navbar ----- */
+.df-navbar {
+  background-color: var(--df-nav-bg);
+}
+
+.df-logo {
+  height: 44px;
+  width: auto;
+  border-radius: 8px;
+}
+
+.df-nav-link {
+  font-family: "Tenor Sans", sans-serif;
+  font-size: 1.6rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--df-text);
+}
+
+.df-nav-link:hover,
+.df-nav-link:focus {
+  color: var(--df-brown);
+}
+
+/* ----- Hero text ----- */
+.df-brand {
+  font-family: "Tenor Sans", sans-serif;
+  font-weight: 400;
+  font-size: clamp(3.5rem, 9vw, 6.5rem);
+  color: var(--df-brown);
+  line-height: 1;
+  margin-bottom: 1.25rem;
+}
+
+.df-tagline {
+  font-family: "League Spartan";
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-weight: 500;
+  text-transform: uppercase;
+  line-height: 1.15;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+@media (min-width: 992px) {
+  .df-tagline { margin: 0; }
+}
+
+/* ----- Hero image ----- */
+.df-hero-img {
+  max-width: 420px;
+  width: 100%;
+  border: 1px solid #222;
+  border-radius: 18px;
+  box-shadow: 8px 10px 0 rgba(0, 0, 0, 0.25);
+}
+
+/* ----- Sign Up button ----- */
+.df-btn-signup {
+  background-color: var(--df-btn-bg);
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: 0.35rem 2.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  box-shadow: 3px 4px 0 rgba(0, 0, 0, 0.3);
+}
+
+.df-btn-signup:hover {
+  background-color: var(--df-brown);
+  color: #fff;
+}
+
+/* ----- Footer ----- */
+.df-footer {
+  background-color: var(--df-brown);
+  color: #f3e9e0;
+}
+
+.df-btn-privacy {
+  background-color: #fff;
+  color: var(--df-text);
+  border-radius: 8px;
+  font-family: "League Spartan", serif;
+  text-transform: uppercase;
+  padding: 0.4rem 1rem;
+}
+
+.df-btn-privacy:hover {
+  background-color: var(--df-nav-bg);
+}
+
+.df-footer-text {
+  font-family: "Tenor Sans", sans-serif;
+  font-size: 1.25rem;
+}
