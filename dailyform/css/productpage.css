@@ -1,300 +1,645 @@
 
+/* =====================================
+   DAILYFORM COLOR PALETTE
+===================================== */
+
 :root {
-  /* Color Palette */
   --df-nav-bg: #DDC8BA;
   --df-page-bg: #F8F5EE;
   --df-brown: #68513C;
   --df-text: #0D0A07;
-  --df-btn-bg: #F8F5EE;
+  --df-btn-bg: #DDC8BA;
   --df-light: #F3E9E0;
-  --df-border: #333333;
+  --df-border: #AFAFAF;
+  --df-image-bg: #C3CBD6;
 }
 
-/* ----- General Styling ----- */
+
+/* =====================================
+   GENERAL STYLING
+===================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 20px;
+}
+
 body {
   background-color: var(--df-page-bg);
   font-family: "Jost", sans-serif;
   color: var(--df-text);
-  margin: 0;
-  line-height: 1.6;
 }
 
-/* ----- Navbar ----- */
+
+/* =====================================
+   NAVIGATION BAR
+===================================== */
+
 .df-navbar {
+  width: 100%;
   background-color: var(--df-nav-bg);
-  padding: 0.8rem 1.5rem;
+  padding: 12px 5%;
 }
+
+.df-nav-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* DAILYFORM LOGO */
 
 .df-logo {
-  height: 44px;
-  width: auto;
-  border-radius: 8px;
-  object-fit: contain;
+  width: 40px;
+  height: 40px;
+  background-color: var(--df-page-bg);
+  border-radius: 9px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: var(--df-brown);
 }
 
-.df-nav-link {
+.df-logo-main {
   font-family: "Tenor Sans", sans-serif;
-  font-size: 1.15rem;
-  letter-spacing: 1.2px;
-  text-transform: uppercase;
+  font-size: 23px;
+  line-height: 20px;
+}
+
+.df-logo-sub {
+  font-family: "Jost", sans-serif;
+  font-size: 4px;
+  letter-spacing: 0.3px;
+}
+
+/* NAVIGATION LINKS */
+
+.df-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+}
+
+.df-nav-links a {
+  font-family: "Tenor Sans", sans-serif;
+  font-size: 1.1rem;
   color: var(--df-text);
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
-.df-nav-link:hover,
-.df-nav-link:focus {
+.df-nav-links a:hover {
   color: var(--df-brown);
 }
 
-/* ----- Hero Section ----- */
-.df-brand {
+
+/* =====================================
+   PRODUCT PAGE
+===================================== */
+
+.df-product-page {
+  max-width: 1100px;
+  min-height: 620px;
+  margin: auto;
+  padding: 25px 35px 55px;
+}
+
+
+/* PRODUCT HEADING */
+
+.df-page-heading {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.df-page-heading h1 {
   font-family: "Tenor Sans", sans-serif;
+  font-size: clamp(1.5rem, 3.2vw, 2.1rem);
   font-weight: 400;
-  font-size: clamp(3.5rem, 9vw, 6.5rem);
-  color: var(--df-brown);
-  line-height: 1;
-  margin-bottom: 1.25rem;
+  line-height: 1.15;
+  text-align: center;
 }
 
-.df-tagline {
-  font-family: "League Spartan", sans-serif;
-  font-size: clamp(1.25rem, 3vw, 1.75rem);
-  font-weight: 500;
-  text-transform: uppercase;
-  line-height: 1.2;
-  max-width: 420px;
-  margin: 0 auto;
-  letter-spacing: 0.5px;
-}
-
-@media (min-width: 992px) {
-  .df-tagline {
-    margin: 0;
-  }
-}
-
-/* ----- Hero Image ----- */
-.df-hero-img {
-  max-width: 420px;
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  border: 1px solid var(--df-border);
-  border-radius: 18px;
-  box-shadow: 8px 10px 0 rgba(0, 0, 0, 0.20);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.df-hero-img:hover {
-  transform: translateY(-3px);
-  box-shadow: 10px 13px 0 rgba(0, 0, 0, 0.18);
-}
-
-/* ----- Sign Up Button ----- */
-.df-btn-signup {
-  background-color: var(--df-btn-bg);
+.df-cart {
+  position: absolute;
+  right: 0;
+  font-size: 1.8rem;
+  text-decoration: none;
   color: var(--df-text);
-  border: 1px solid var(--df-border);
-  border-radius: 10px;
-  padding: 0.65rem 2.5rem;
+  transition: transform 0.3s ease;
+}
+
+.df-cart:hover {
+  transform: scale(1.1);
+}
+
+
+/* =====================================
+   PRODUCT LAYOUT
+===================================== */
+
+.df-product-container {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  align-items: center;
+  gap: 30px;
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+
+/* PRODUCT IMAGE */
+
+.df-product-image-container {
+  width: 100%;
+  height: 270px;
+  background-color: var(--df-image-bg);
+  border-radius: 13px;
+  box-shadow: 5px 8px 5px rgba(0, 0, 0, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.df-product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 15px;
+}
+
+
+/* =====================================
+   PRODUCT DETAILS
+===================================== */
+
+.df-product-details {
+  width: 100%;
+}
+
+.df-product-name {
   font-family: "League Spartan", sans-serif;
-  font-size: 1rem;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  box-shadow: 3px 4px 0 rgba(0, 0, 0, 0.25);
+  font-size: 1.65rem;
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+
+.df-product-description {
+  font-family: "Jost", sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.3;
+  margin-bottom: 12px;
+}
+
+.df-product-price {
+  font-family: "League Spartan", sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+
+/* =====================================
+   SIZE SELECTOR
+===================================== */
+
+.df-size-container {
+  width: 100%;
+  max-width: 220px;
+  margin-bottom: 17px;
+}
+
+.df-size-container label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 0.8rem;
+}
+
+.df-size-container select,
+.df-form-group select {
+  width: 100%;
+  padding: 9px 12px;
+  background-color: var(--df-brown);
+  color: white;
+  border: none;
+  border-radius: 7px;
+  font-family: "Jost", sans-serif;
+  cursor: pointer;
+}
+
+
+/* =====================================
+   QUANTITY CONTROLS
+===================================== */
+
+.df-quantity-container {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 35px;
+}
+
+.df-quantity-btn {
+  width: 27px;
+  height: 27px;
+  background-color: var(--df-nav-bg);
+  color: var(--df-text);
+  border: none;
+  font-size: 1.3rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.df-quantity-btn:hover {
+  background-color: var(--df-brown);
+  color: white;
+}
+
+.df-quantity-container input {
+  width: 35px;
+  text-align: center;
+  font-family: "League Spartan", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border: none;
+  background: transparent;
+  outline: none;
+}
+
+.df-quantity-container input::-webkit-inner-spin-button,
+.df-quantity-container input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.df-quantity-container input[type="number"] {
+  appearance: textfield;
+}
+
+
+/* =====================================
+   ORDER BUTTON
+===================================== */
+
+.df-btn-order {
+  display: inline-block;
+  background-color: var(--df-nav-bg);
+  color: var(--df-text);
+  border: 1px solid #8B796B;
+  border-radius: 10px;
+  padding: 9px 22px;
+  font-family: "League Spartan", sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 3px 4px 0 rgba(0, 0, 0, 0.18);
+  cursor: pointer;
   transition: all 0.3s ease;
 }
 
-.df-btn-signup:hover {
+.df-btn-order:hover {
   background-color: var(--df-brown);
-  color: #fff;
+  color: white;
   transform: translateY(-2px);
-  box-shadow: 4px 6px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 4px 6px 0 rgba(0, 0, 0, 0.15);
 }
 
-/* ----- Footer ----- */
+
+/* =====================================
+   ORDER SECTION
+===================================== */
+
+.df-order-section {
+  background-color: var(--df-nav-bg);
+  padding: 70px 20px;
+  scroll-margin-top: 20px;
+}
+
+.df-order-container {
+  max-width: 600px;
+  margin: auto;
+  padding: 35px;
+  background-color: var(--df-page-bg);
+  border-radius: 12px;
+}
+
+.df-eyebrow {
+  font-family: "Tenor Sans", sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 1.5px;
+  color: var(--df-brown);
+  margin-bottom: 10px;
+}
+
+.df-order-container h2 {
+  font-family: "Tenor Sans", sans-serif;
+  font-weight: 400;
+  font-size: 2rem;
+  color: var(--df-brown);
+  margin-bottom: 12px;
+}
+
+.df-order-description {
+  font-size: 0.95rem;
+  margin-bottom: 25px;
+}
+
+
+/* ORDER SUMMARY */
+
+.df-order-summary {
+  background-color: #EDE3D9;
+  padding: 18px;
+  border-radius: 8px;
+  margin-bottom: 25px;
+}
+
+.df-summary-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 7px 0;
+  font-size: 0.95rem;
+}
+
+.df-summary-row strong {
+  font-family: "League Spartan", sans-serif;
+}
+
+.df-summary-row:last-child {
+  border-top: 1px solid var(--df-brown);
+  margin-top: 8px;
+  padding-top: 13px;
+  font-size: 1.05rem;
+}
+
+
+/* =====================================
+   ORDER FORM
+===================================== */
+
+.df-order-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.df-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.df-form-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.df-form-group input,
+.df-form-group textarea {
+  width: 100%;
+  padding: 11px;
+  border: 1px solid var(--df-border);
+  border-radius: 7px;
+  background-color: white;
+  font-family: "Jost", sans-serif;
+  font-size: 0.95rem;
+}
+
+.df-form-group input:focus,
+.df-form-group textarea:focus,
+.df-form-group select:focus {
+  outline: 2px solid var(--df-brown);
+  outline-offset: 2px;
+}
+
+.df-form-group textarea {
+  resize: vertical;
+}
+
+
+/* FINAL TOTAL */
+
+.df-final-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 2px solid var(--df-nav-bg);
+  padding: 18px 0;
+  margin-top: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.df-final-total strong {
+  font-family: "League Spartan", sans-serif;
+  font-size: 1.4rem;
+  color: var(--df-brown);
+}
+
+
+/* SUBMIT BUTTON */
+
+.df-submit-order {
+  width: 100%;
+  margin-top: 5px;
+}
+
+.df-back-link {
+  display: inline-block;
+  margin-top: 22px;
+  color: var(--df-brown);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.df-back-link:hover {
+  text-decoration: underline;
+}
+
+
+/* =====================================
+   FOOTER
+===================================== */
+
 .df-footer {
   background-color: var(--df-brown);
   color: var(--df-light);
-  padding: 2rem 1.5rem;
+  padding: 12px 5%;
+}
+
+.df-footer-container {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
 }
 
 .df-btn-privacy {
-  background-color: #fff;
+  display: inline-block;
+  background-color: var(--df-page-bg);
   color: var(--df-text);
-  border: 1px solid transparent;
   border-radius: 8px;
-  font-family: "League Spartan", sans-serif;
+  padding: 6px 17px;
+  font-family: "Tenor Sans", sans-serif;
   font-size: 0.9rem;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  padding: 0.5rem 1.2rem;
-  transition: all 0.3s ease;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
 }
 
 .df-btn-privacy:hover {
   background-color: var(--df-nav-bg);
-  color: var(--df-text);
 }
 
-.df-footer-text {
+.df-footer-container p {
   font-family: "Tenor Sans", sans-serif;
-  font-size: 1.1rem;
-  line-height: 1.5;
-}
-
-/* ----- Privacy Policy Page ----- */
-.privacy-container {
-  max-width: 1100px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 3rem 1.5rem;
-}
-
-.privacy-intro {
-  border-bottom: 2px solid var(--df-nav-bg);
-  padding-bottom: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-
-.privacy-eyebrow {
-  font-family: "Tenor Sans", sans-serif;
-  font-size: 0.85rem;
-  color: var(--df-brown);
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  margin-bottom: 0.5rem;
-}
-
-.privacy-title {
-  font-family: "Tenor Sans", sans-serif;
-  font-size: clamp(1.7rem, 4vw, 2.3rem);
-  font-weight: 400;
-  color: var(--df-brown);
-  line-height: 1.2;
-  margin-bottom: 0.75rem;
-}
-
-.privacy-date {
-  font-family: "Tenor Sans", sans-serif;
-  font-size: 0.85rem;
-  color: var(--df-text);
-  opacity: 0.75;
-}
-
-.privacy-description {
-  font-family: "Jost", sans-serif;
   font-size: 1rem;
-  line-height: 1.7;
-  color: var(--df-text);
+  margin: 0;
 }
 
-.privacy-section {
-  margin-bottom: 1.8rem;
-}
 
-.privacy-section h2 {
-  font-family: "Tenor Sans", sans-serif;
-  font-size: 1.15rem;
-  font-weight: 400;
-  letter-spacing: 0.5px;
-  color: var(--df-brown);
-  margin-bottom: 0.5rem;
-}
+/* =====================================
+   RESPONSIVE DESIGN - TABLET
+===================================== */
 
-.privacy-section p {
-  font-family: "Jost", sans-serif;
-  font-size: 0.95rem;
-  line-height: 1.65;
-  color: var(--df-text);
-  margin-bottom: 0.5rem;
-}
+@media (max-width: 768px) {
 
-/* ----- Responsive Adjustments ----- */
-@media (max-width: 991px) {
-  .df-brand {
-    font-size: clamp(3rem, 10vw, 5rem);
+  .df-product-page {
+    min-height: auto;
+    padding: 35px 25px 55px;
   }
 
-  .df-hero-img {
-    max-width: 380px;
+  .df-product-container {
+    grid-template-columns: 1fr;
+    max-width: 450px;
+    gap: 25px;
+  }
+
+  .df-product-image-container {
+    height: 320px;
+  }
+
+  .df-product-details {
+    text-align: left;
+  }
+
+  .df-page-heading h1 {
+    font-size: 1.65rem;
+  }
+
+  .df-order-section {
+    padding: 50px 20px;
   }
 }
 
-@media (max-width: 576px) {
+
+/* =====================================
+   RESPONSIVE DESIGN - MOBILE
+===================================== */
+
+@media (max-width: 480px) {
+
   .df-navbar {
-    padding: 0.7rem 1rem;
+    padding: 12px 18px;
+  }
+
+  .df-nav-links {
+    gap: 18px;
+  }
+
+  .df-nav-links a {
+    font-size: 0.8rem;
   }
 
   .df-logo {
-    height: 38px;
+    width: 36px;
+    height: 36px;
   }
 
-  .df-nav-link {
-    font-size: 1rem;
+  .df-page-heading {
+    margin-bottom: 30px;
   }
 
-  .df-brand {
-    font-size: 3.2rem;
+  .df-page-heading h1 {
+    font-size: 1.3rem;
   }
 
-  .df-tagline {
-    font-size: 1.15rem;
+  .df-cart {
+    font-size: 1.4rem;
   }
 
-  .df-hero-img {
-    max-width: 100%;
-    border-radius: 14px;
+  .df-product-page {
+    padding: 30px 20px 45px;
   }
 
-  .df-btn-signup {
-    width: 100%;
-    padding: 0.7rem 1.5rem;
+  .df-product-image-container {
+    height: 260px;
   }
 
-  .df-footer {
-    padding: 1.5rem 1rem;
+  .df-product-name {
+    font-size: 1.5rem;
   }
 
-  .df-footer-text {
-    font-size: 1rem;
+  .df-product-description {
+    font-size: 0.9rem;
   }
 
-  .privacy-container {
-    padding: 2rem 1rem;
+  .df-order-section {
+    padding: 35px 15px;
   }
 
-  .privacy-intro {
-    padding-bottom: 1rem;
+  .df-order-container {
+    padding: 25px 18px;
   }
 
-  .privacy-title {
-    font-size: 1.7rem;
+  .df-order-container h2 {
+    font-size: 1.65rem;
   }
 
-  .privacy-section {
-    margin-bottom: 1.4rem;
+  .df-footer-container {
+    flex-direction: column;
+    text-align: center;
   }
 
-  .privacy-section h2 {
-    font-size: 1rem;
+  .df-footer-container p {
+    font-size: 0.85rem;
   }
 
-  .privacy-section p {
-    font-size: 0.95rem;
-  }
 }
 
-/* ----- Accessibility ----- */
+
+/* =====================================
+   ACCESSIBILITY
+===================================== */
+
 @media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
   *,
   *::before,
   *::after {
-    scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
-    animation-duration: 0.01ms !important;
   }
+
 }
+
