@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,8 +7,10 @@
 
     <title>Don't Be Late | dailyform</title>
 
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -18,7 +21,7 @@
         <div class="container">
 
             <a class="navbar-brand fw-bold" href="index.html">
-                SimpleTees142
+                dailyform
             </a>
 
             <button class="navbar-toggler" type="button"
@@ -50,7 +53,6 @@
         </div>
     </nav>
 
-
     <!-- Product Section -->
     <main class="container product-section">
 
@@ -58,15 +60,12 @@
 
             <!-- Product Image -->
             <div class="col-md-6">
-
-    <img
-        src="images/flattee-1inwhite.png"
-        alt="White Don't Be Late T-shirt"
-        class="img-fluid product-image"
-    >
-
-</div>
-
+                <img
+                    src="images/flattee-1inwhite.png"
+                    alt="White Don't Be Late T-shirt"
+                    class="img-fluid product-image"
+                >
+            </div>
 
             <!-- Product Details -->
             <div class="col-md-6">
@@ -116,7 +115,6 @@
                     type="button"
                     class="btn btn-dark btn-lg w-100"
                     onclick="orderProduct()">
-
                     Order Now
                 </button>
 
@@ -125,23 +123,18 @@
 
     </main>
 
-
     <!-- Footer -->
     <footer class="text-center py-4">
         <p class="mb-0">
-            &copy; 2026 SimpleTees142. All Rights Reserved.
+            &copy; 2026 dailyform. All Rights Reserved.
         </p>
     </footer>
-
 
     <!-- Bootstrap JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Custom JavaScript -->
     <script src="js/script.js"></script>
-
-</body>
-</html>
 
 </body>
 </html>
