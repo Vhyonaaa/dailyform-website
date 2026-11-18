@@ -58,19 +58,22 @@
 
             <!-- Product Image -->
             <div class="col-md-6">
-                <img
-                    src="images/dont-be-late.jpg"
-                    class="img-fluid product-image"
-                    alt="Don't Be Late graphic T-shirt"
-                >
-            </div>
+
+    <img
+        src="images/flattee-1inwhite.png"
+        alt="White Don't Be Late T-shirt"
+        class="img-fluid product-image"
+    >
+
+</div>
+
 
             <!-- Product Details -->
             <div class="col-md-6">
 
-                <p class="text-muted">SIMPLETEES142 COLLECTION</p>
+                <p class="text-muted">dailyform COLLECTION</p>
 
-                <h1 id="product-name">Don't Be Late Tee</h1>
+                <h1 id="product-name">Don't Be Late</h1>
 
                 <h2 class="product-price">₱299.00</h2>
 
