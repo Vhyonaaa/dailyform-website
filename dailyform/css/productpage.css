@@ -1,0 +1,300 @@
+
+:root {
+  /* Color Palette */
+  --df-nav-bg: #DDC8BA;
+  --df-page-bg: #F8F5EE;
+  --df-brown: #68513C;
+  --df-text: #0D0A07;
+  --df-btn-bg: #F8F5EE;
+  --df-light: #F3E9E0;
+  --df-border: #333333;
+}
+
+/* ----- General Styling ----- */
+body {
+  background-color: var(--df-page-bg);
+  font-family: "Jost", sans-serif;
+  color: var(--df-text);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ----- Navbar ----- */
+.df-navbar {
+  background-color: var(--df-nav-bg);
+  padding: 0.8rem 1.5rem;
+}
+
+.df-logo {
+  height: 44px;
+  width: auto;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+.df-nav-link {
+  font-family: "Tenor Sans", sans-serif;
+  font-size: 1.15rem;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--df-text);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.df-nav-link:hover,
+.df-nav-link:focus {
+  color: var(--df-brown);
+}
+
+/* ----- Hero Section ----- */
+.df-brand {
+  font-family: "Tenor Sans", sans-serif;
+  font-weight: 400;
+  font-size: clamp(3.5rem, 9vw, 6.5rem);
+  color: var(--df-brown);
+  line-height: 1;
+  margin-bottom: 1.25rem;
+}
+
+.df-tagline {
+  font-family: "League Spartan", sans-serif;
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-weight: 500;
+  text-transform: uppercase;
+  line-height: 1.2;
+  max-width: 420px;
+  margin: 0 auto;
+  letter-spacing: 0.5px;
+}
+
+@media (min-width: 992px) {
+  .df-tagline {
+    margin: 0;
+  }
+}
+
+/* ----- Hero Image ----- */
+.df-hero-img {
+  max-width: 420px;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border: 1px solid var(--df-border);
+  border-radius: 18px;
+  box-shadow: 8px 10px 0 rgba(0, 0, 0, 0.20);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.df-hero-img:hover {
+  transform: translateY(-3px);
+  box-shadow: 10px 13px 0 rgba(0, 0, 0, 0.18);
+}
+
+/* ----- Sign Up Button ----- */
+.df-btn-signup {
+  background-color: var(--df-btn-bg);
+  color: var(--df-text);
+  border: 1px solid var(--df-border);
+  border-radius: 10px;
+  padding: 0.65rem 2.5rem;
+  font-family: "League Spartan", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  box-shadow: 3px 4px 0 rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+}
+
+.df-btn-signup:hover {
+  background-color: var(--df-brown);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 4px 6px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* ----- Footer ----- */
+.df-footer {
+  background-color: var(--df-brown);
+  color: var(--df-light);
+  padding: 2rem 1.5rem;
+}
+
+.df-btn-privacy {
+  background-color: #fff;
+  color: var(--df-text);
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-family: "League Spartan", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 0.5rem 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.df-btn-privacy:hover {
+  background-color: var(--df-nav-bg);
+  color: var(--df-text);
+}
+
+.df-footer-text {
+  font-family: "Tenor Sans", sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+/* ----- Privacy Policy Page ----- */
+.privacy-container {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+.privacy-intro {
+  border-bottom: 2px solid var(--df-nav-bg);
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.privacy-eyebrow {
+  font-family: "Tenor Sans", sans-serif;
+  font-size: 0.85rem;
+  color: var(--df-brown);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.privacy-title {
+  font-family: "Tenor Sans", sans-serif;
+  font-size: clamp(1.7rem, 4vw, 2.3rem);
+  font-weight: 400;
+  color: var(--df-brown);
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+}
+
+.privacy-date {
+  font-family: "Tenor Sans", sans-serif;
+  font-size: 0.85rem;
+  color: var(--df-text);
+  opacity: 0.75;
+}
+
+.privacy-description {
+  font-family: "Jost", sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--df-text);
+}
+
+.privacy-section {
+  margin-bottom: 1.8rem;
+}
+
+.privacy-section h2 {
+  font-family: "Tenor Sans", sans-serif;
+  font-size: 1.15rem;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  color: var(--df-brown);
+  margin-bottom: 0.5rem;
+}
+
+.privacy-section p {
+  font-family: "Jost", sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--df-text);
+  margin-bottom: 0.5rem;
+}
+
+/* ----- Responsive Adjustments ----- */
+@media (max-width: 991px) {
+  .df-brand {
+    font-size: clamp(3rem, 10vw, 5rem);
+  }
+
+  .df-hero-img {
+    max-width: 380px;
+  }
+}
+
+@media (max-width: 576px) {
+  .df-navbar {
+    padding: 0.7rem 1rem;
+  }
+
+  .df-logo {
+    height: 38px;
+  }
+
+  .df-nav-link {
+    font-size: 1rem;
+  }
+
+  .df-brand {
+    font-size: 3.2rem;
+  }
+
+  .df-tagline {
+    font-size: 1.15rem;
+  }
+
+  .df-hero-img {
+    max-width: 100%;
+    border-radius: 14px;
+  }
+
+  .df-btn-signup {
+    width: 100%;
+    padding: 0.7rem 1.5rem;
+  }
+
+  .df-footer {
+    padding: 1.5rem 1rem;
+  }
+
+  .df-footer-text {
+    font-size: 1rem;
+  }
+
+  .privacy-container {
+    padding: 2rem 1rem;
+  }
+
+  .privacy-intro {
+    padding-bottom: 1rem;
+  }
+
+  .privacy-title {
+    font-size: 1.7rem;
+  }
+
+  .privacy-section {
+    margin-bottom: 1.4rem;
+  }
+
+  .privacy-section h2 {
+    font-size: 1rem;
+  }
+
+  .privacy-section p {
+    font-size: 0.95rem;
+  }
+}
+
+/* ----- Accessibility ----- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
