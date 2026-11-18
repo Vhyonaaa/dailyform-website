@@ -1,56 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Don't Be Late Tee | SimpleTees142</title>
 
-    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    
     <link rel="stylesheet" href="css/style.css">
-
 </head>
 
 <body>
 
-    <h1>Don't Be Late </h1>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
 
-    <button onclick="orderProduct()">Order Now</button>
+            <a class="navbar-brand fw-bold" href="index.html">
+                SimpleTees142
+            </a>
 
+            <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarMenu"
+                aria-controls="navbarMenu"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarMenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact Us</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="privacy.html">Privacy Policy</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+
+    <!-- Product Section -->
+    <main class="container product-section">
+
+        <div class="row align-items-center g-5">
+
+            <!-- Product Image -->
+            <div class="col-md-6">
+                <img
+                    src="images/dont-be-late.jpg"
+                    class="img-fluid product-image"
+                    alt="Don't Be Late graphic T-shirt"
+                >
+            </div>
+
+            <!-- Product Details -->
+            <div class="col-md-6">
+
+                <p class="text-muted">SIMPLETEES142 COLLECTION</p>
+
+                <h1 id="product-name">Don't Be Late Tee</h1>
+
+                <h2 class="product-price">₱299.00</h2>
+
+                <p class="product-description">
+                    Minimalist comfortable white shirt perfect for everyday style.
+                </p>
+
+                <hr>
+
+                <!-- Size Selection -->
+                <div class="mb-3">
+                    <label for="size" class="form-label">Select Size:</label>
+
+                    <select class="form-select" id="size" required>
+                        <option value="">Choose a size</option>
+                        <option value="Small">Small</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Large">Large</option>
+                        <option value="Extra Large">Extra Large</option>
+                    </select>
+                </div>
+
+                <!-- Quantity -->
+                <div class="mb-4">
+                    <label for="quantity" class="form-label">Quantity:</label>
+
+                    <input
+                        type="number"
+                        class="form-control"
+                        id="quantity"
+                        value="1"
+                        min="1"
+                        max="99"
+                        required
+                    >
+                </div>
+
+                <!-- Order Button -->
+                <button
+                    type="button"
+                    class="btn btn-dark btn-lg w-100"
+                    onclick="orderProduct()">
+
+                    Order Now
+                </button>
+
+            </div>
+        </div>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="text-center py-4">
+        <p class="mb-0">
+            &copy; 2026 SimpleTees142. All Rights Reserved.
+        </p>
+    </footer>
+
+
+    <!-- Bootstrap JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
-  
+    <!-- Custom JavaScript -->
     <script src="js/script.js"></script>
-
-<!-- FOOTER -->
-	<footer class="df-footer py-3">
-		<div class="container-fluid px-3 px-md-4">
-		
-			<div class="row align-items-center gy-3 text-center text-md-start">
-			
-				<div class="col-md-6">
-					<a href="index.html" class="btn df-btn-privacy">
-						Home
-					</a>
-				</div>
-				
-				<div class="col-md-6 text-md-end">
-					<p class="df-footer-text mb-0">
-						Everyday Comfort. Your Everyday Style.
-					</p>
-				</div>
-				
-			</div>
-		
-		</div>
-	</footer>
-	
-	<!-- Bootstrap JavaScript -->
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
