@@ -1,0 +1,476 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>DAILYFORM | Don't be late</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&family=League+Spartan:wght@300;400;500;600;700&family=Tenor+Sans&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- =========================
+       NAVIGATION BAR
+  ========================== -->
+
+  <header class="df-navbar">
+    <div class="df-nav-container">
+
+      <a href="#shop" class="df-logo" aria-label="DAILYFORM Home">
+        <span class="df-logo-main">df</span>
+        <span class="df-logo-sub">EVERYDAY STYLE</span>
+      </a>
+
+      <nav class="df-nav-links">
+        <a href="#shop">SHOP</a>
+        <a href="#order">YOUR ORDER</a>
+      </nav>
+
+    </div>
+  </header>
+
+
+  <!-- =========================
+       PRODUCT PAGE
+  ========================== -->
+
+  <main>
+
+    <section class="df-product-page" id="shop">
+
+      <!-- Product Page Heading -->
+
+      <div class="df-page-heading">
+
+        <h1>
+          EVERYDAY COMFORT.<br>
+          YOUR EVERYDAY STYLE.
+        </h1>
+
+        <a href="#order" class="df-cart" aria-label="Go to your order">
+          🛒
+        </a>
+
+      </div>
+
+
+      <!-- Product Information -->
+
+      <div class="df-product-container">
+
+        <!-- Product Image -->
+
+        <div class="df-product-image-container">
+
+          <img
+            src="images/do-good-work-shirt.jpg"
+            alt="DAILYFORM Dont be late white shirt"
+            class="df-product-image">
+
+        </div>
+
+
+        <!-- Product Details -->
+
+        <div class="df-product-details">
+
+          <h2 class="df-product-name">
+            DON'T BE LATE
+          </h2>
+
+          <p class="df-product-description">
+            Minimalist comfortable white shirt perfect
+            for everyday style.
+          </p>
+
+          <p class="df-product-price">₱299</p>
+
+
+          <!-- Size Selection -->
+
+          <div class="df-size-container">
+
+            <label for="shirt-size">Choose a size</label>
+
+            <select id="shirt-size" name="size" required>
+              <option value="" disabled selected>Choose a size</option>
+              <option value="Small">Small</option>
+              <option value="Medium">Medium</option>
+              <option value="Large">Large</option>
+              <option value="XL">Extra Large</option>
+            </select>
+
+          </div>
+
+
+          <!-- Quantity Selection -->
+
+          <div class="df-quantity-container">
+
+            <button
+              type="button"
+              class="df-quantity-btn"
+              onclick="changeQuantity(-1)"
+              aria-label="Decrease quantity">
+              −
+            </button>
+
+            <input
+              type="number"
+              id="quantity"
+              name="quantity"
+              value="1"
+              min="1"
+              max="99"
+              aria-label="Quantity">
+
+            <button
+              type="button"
+              class="df-quantity-btn"
+              onclick="changeQuantity(1)"
+              aria-label="Increase quantity">
+              +
+            </button>
+
+          </div>
+
+
+          <!-- Order Now -->
+
+          <a href="#order" class="df-btn-order" id="order-now">
+            ORDER NOW
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         ORDER FORM
+    ========================== -->
+
+    <section class="df-order-section" id="order">
+
+      <div class="df-order-container">
+
+        <p class="df-eyebrow">
+          DAILYFORM | ORDER DETAILS
+        </p>
+
+        <h2>YOUR DON'T BE LATE SHIRT</h2>
+
+        <p class="df-order-description">
+          Complete the information below to place your order inquiry.
+        </p>
+
+
+        <!-- Order Summary -->
+
+        <div class="df-order-summary">
+
+          <div class="df-summary-row">
+            <span>Product</span>
+            <strong>DDON' BE LATE</strong>
+          </div>
+
+          <div class="df-summary-row">
+            <span>Price</span>
+            <strong>₱299</strong>
+          </div>
+
+          <div class="df-summary-row">
+            <span>Quantity</span>
+            <strong id="summary-quantity">1</strong>
+          </div>
+
+          <div class="df-summary-row">
+            <span>Subtotal</span>
+            <strong id="summary-total">₱299</strong>
+          </div>
+
+        </div>
+
+
+        <!-- Customer Order Form -->
+
+        <form
+          class="df-order-form"
+          action="mailto:your-email@example.com"
+          method="post"
+          enctype="text/plain">
+
+          <div class="df-form-group">
+
+            <label for="customer-name">Full Name</label>
+
+            <input
+              type="text"
+              id="customer-name"
+              name="Customer Name"
+              placeholder="Enter your full name"
+              required>
+
+          </div>
+
+
+          <div class="df-form-group">
+
+            <label for="customer-email">Email Address</label>
+
+            <input
+              type="email"
+              id="customer-email"
+              name="Email Address"
+              placeholder="Enter your email address"
+              required>
+
+          </div>
+
+
+          <div class="df-form-group">
+
+            <label for="customer-phone">Contact Number</label>
+
+            <input
+              type="tel"
+              id="customer-phone"
+              name="Contact Number"
+              placeholder="Enter your contact number"
+              required>
+
+          </div>
+
+
+          <div class="df-form-group">
+
+            <label for="order-size">Shirt Size</label>
+
+            <select id="order-size" name="Shirt Size" required>
+              <option value="" disabled selected>Select your size</option>
+              <option value="Small">Small</option>
+              <option value="Medium">Medium</option>
+              <option value="Large">Large</option>
+              <option value="XL">Extra Large</option>
+            </select>
+
+          </div>
+
+
+          <div class="df-form-group">
+
+            <label for="order-quantity">Quantity</label>
+
+            <input
+              type="number"
+              id="order-quantity"
+              name="Quantity"
+              value="1"
+              min="1"
+              max="99"
+              required>
+
+          </div>
+
+
+          <div class="df-form-group">
+
+            <label for="delivery-address">Complete Delivery Address</label>
+
+            <textarea
+              id="delivery-address"
+              name="Delivery Address"
+              placeholder="House number, street, barangay, city, province"
+              rows="3"
+              required></textarea>
+
+          </div>
+
+
+          <div class="df-form-group">
+
+            <label for="order-notes">Additional Notes (Optional)</label>
+
+            <textarea
+              id="order-notes"
+              name="Additional Notes"
+              placeholder="Other order instructions..."
+              rows="3"></textarea>
+
+          </div>
+
+
+          <!-- Total Price -->
+
+          <div class="df-final-total">
+            <span>Total Amount</span>
+            <strong id="final-total">₱299</strong>
+          </div>
+
+
+          <!-- Submit Order -->
+
+          <button type="submit" class="df-btn-order df-submit-order">
+            SUBMIT ORDER
+          </button>
+
+        </form>
+
+
+        <a href="#shop" class="df-back-link">
+          ← BACK TO PRODUCT
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer class="df-footer">
+
+    <div class="df-footer-container">
+
+      <a href="privacy.html" class="df-btn-privacy">
+        PRIVACY
+      </a>
+
+      <p>
+        Everyday Comfort. Your Everyday Style.
+      </p>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================== -->
+
+  <script>
+
+    const productPrice = 299;
+
+    const quantityInput = document.getElementById("quantity");
+    const orderQuantity = document.getElementById("order-quantity");
+
+    const shirtSize = document.getElementById("shirt-size");
+    const orderSize = document.getElementById("order-size");
+
+
+    // Update quantity and total price
+
+    function updateOrderSummary() {
+
+      let quantity = parseInt(quantityInput.value) || 1;
+
+      quantity = Math.max(1, Math.min(99, quantity));
+
+      quantityInput.value = quantity;
+      orderQuantity.value = quantity;
+
+      const total = productPrice * quantity;
+
+      document.getElementById("summary-quantity").textContent = quantity;
+
+      document.getElementById("summary-total").textContent =
+        "₱" + total.toLocaleString("en-PH");
+
+      document.getElementById("final-total").textContent =
+        "₱" + total.toLocaleString("en-PH");
+    }
+
+
+    // Increase or decrease quantity
+
+    function changeQuantity(amount) {
+
+      let quantity = parseInt(quantityInput.value) || 1;
+
+      quantity += amount;
+
+      quantity = Math.max(1, Math.min(99, quantity));
+
+      quantityInput.value = quantity;
+
+      updateOrderSummary();
+    }
+
+
+    // Manual quantity input
+
+    quantityInput.addEventListener("change", updateOrderSummary);
+
+    orderQuantity.addEventListener("input", function() {
+
+      let quantity = parseInt(this.value) || 1;
+
+      quantity = Math.max(1, Math.min(99, quantity));
+
+      quantityInput.value = quantity;
+      orderQuantity.value = quantity;
+
+      updateOrderSummary();
+
+    });
+
+
+    // Synchronize shirt size
+
+    shirtSize.addEventListener("change", function() {
+      orderSize.value = this.value;
+    });
+
+    orderSize.addEventListener("change", function() {
+      shirtSize.value = this.value;
+    });
+
+
+    // Initialize order summary
+
+    updateOrderSummary();
+
+
+    // Validate size before proceeding to order section
+
+    document.getElementById("order-now").addEventListener("click", function(event) {
+
+      if (!shirtSize.value) {
+
+        event.preventDefault();
+
+        alert("Please choose your shirt size before proceeding.");
+
+        shirtSize.focus();
+
+        return;
+      }
+
+      orderSize.value = shirtSize.value;
+      updateOrderSummary();
+
+    });
+
+  </script>
+
+</body>
+</html>
