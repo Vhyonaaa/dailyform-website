@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>DAILYFORM | Don't be late</title>
+  <title>DAILYFORM | Don't Be Late</title>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,7 +14,7 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&family=League+Spartan:wght@300;400;500;600;700&family=Tenor+Sans&display=swap" rel="stylesheet">
 
-  <!-- Stylesheet -->
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -42,14 +42,12 @@
 
 
   <!-- =========================
-       PRODUCT PAGE
+       MAIN PRODUCT PAGE
   ========================== -->
 
   <main>
 
     <section class="df-product-page" id="shop">
-
-      <!-- Product Page Heading -->
 
       <div class="df-page-heading">
 
@@ -65,23 +63,23 @@
       </div>
 
 
-      <!-- Product Information -->
+      <!-- PRODUCT INFORMATION -->
 
       <div class="df-product-container">
 
-        <!-- Product Image -->
+        <!-- PRODUCT IMAGE -->
 
         <div class="df-product-image-container">
 
           <img
-            src="images/do-good-work-shirt.jpg"
-            alt="DAILYFORM Dont be late white shirt"
+            src="images/dont-be-late-shirt.jpg"
+            alt="DAILYFORM Don't Be Late shirt"
             class="df-product-image">
 
         </div>
 
 
-        <!-- Product Details -->
+        <!-- PRODUCT DETAILS -->
 
         <div class="df-product-details">
 
@@ -90,14 +88,14 @@
           </h2>
 
           <p class="df-product-description">
-            Minimalist comfortable white shirt perfect
+            Minimalist comfortable shirt perfect
             for everyday style.
           </p>
 
           <p class="df-product-price">₱299</p>
 
 
-          <!-- Size Selection -->
+          <!-- SIZE SELECTION -->
 
           <div class="df-size-container">
 
@@ -114,14 +112,14 @@
           </div>
 
 
-          <!-- Quantity Selection -->
+          <!-- QUANTITY SELECTION -->
 
           <div class="df-quantity-container">
 
             <button
               type="button"
               class="df-quantity-btn"
-              onclick="changeQuantity(-1)"
+              id="decrease-quantity"
               aria-label="Decrease quantity">
               −
             </button>
@@ -129,7 +127,6 @@
             <input
               type="number"
               id="quantity"
-              name="quantity"
               value="1"
               min="1"
               max="99"
@@ -138,7 +135,7 @@
             <button
               type="button"
               class="df-quantity-btn"
-              onclick="changeQuantity(1)"
+              id="increase-quantity"
               aria-label="Increase quantity">
               +
             </button>
@@ -146,7 +143,7 @@
           </div>
 
 
-          <!-- Order Now -->
+          <!-- ORDER NOW BUTTON -->
 
           <a href="#order" class="df-btn-order" id="order-now">
             ORDER NOW
@@ -160,7 +157,7 @@
 
 
     <!-- =========================
-         ORDER FORM
+         ORDER FORM SECTION
     ========================== -->
 
     <section class="df-order-section" id="order">
@@ -174,22 +171,27 @@
         <h2>YOUR DON'T BE LATE SHIRT</h2>
 
         <p class="df-order-description">
-          Complete the information below to place your order inquiry.
+          Complete the information below to place your order.
         </p>
 
 
-        <!-- Order Summary -->
+        <!-- ORDER SUMMARY -->
 
         <div class="df-order-summary">
 
           <div class="df-summary-row">
             <span>Product</span>
-            <strong>DDON' BE LATE</strong>
+            <strong>DON'T BE LATE</strong>
           </div>
 
           <div class="df-summary-row">
-            <span>Price</span>
+            <span>Price per shirt</span>
             <strong>₱299</strong>
+          </div>
+
+          <div class="df-summary-row">
+            <span>Size</span>
+            <strong id="summary-size">Not selected</strong>
           </div>
 
           <div class="df-summary-row">
@@ -205,13 +207,41 @@
         </div>
 
 
-        <!-- Customer Order Form -->
+        <!-- CUSTOMER ORDER FORM -->
+
+        <!-- REPLACE THE FORM ID WITH YOUR FORMSPREE ID -->
 
         <form
           class="df-order-form"
-          action="mailto:your-email@example.com"
-          method="post"
-          enctype="text/plain">
+          id="dailyform-order-form"
+          action="https://formspree.io/f/YOUR_FORM_ID"
+          method="POST">
+
+          <!-- EMAIL SETTINGS -->
+
+          <input
+            type="hidden"
+            name="_subject"
+            value="New DAILYFORM Order - Don't Be Late">
+
+          <input
+            type="hidden"
+            name="_replyto"
+            id="reply-email">
+
+          <!-- PRODUCT INFORMATION -->
+
+          <input
+            type="hidden"
+            name="Product"
+            value="DON'T BE LATE">
+
+          <input
+            type="hidden"
+            name="Price per Shirt"
+            value="299">
+
+          <!-- CUSTOMER NAME -->
 
           <div class="df-form-group">
 
@@ -220,12 +250,15 @@
             <input
               type="text"
               id="customer-name"
-              name="Customer Name"
+              name="Full Name"
               placeholder="Enter your full name"
+              autocomplete="name"
               required>
 
           </div>
 
+
+          <!-- EMAIL ADDRESS -->
 
           <div class="df-form-group">
 
@@ -236,10 +269,13 @@
               id="customer-email"
               name="Email Address"
               placeholder="Enter your email address"
+              autocomplete="email"
               required>
 
           </div>
 
+
+          <!-- CONTACT NUMBER -->
 
           <div class="df-form-group">
 
@@ -250,25 +286,35 @@
               id="customer-phone"
               name="Contact Number"
               placeholder="Enter your contact number"
+              autocomplete="tel"
               required>
 
           </div>
 
 
+          <!-- SHIRT SIZE -->
+
           <div class="df-form-group">
 
             <label for="order-size">Shirt Size</label>
 
-            <select id="order-size" name="Shirt Size" required>
+            <select
+              id="order-size"
+              name="Shirt Size"
+              required>
+
               <option value="" disabled selected>Select your size</option>
               <option value="Small">Small</option>
               <option value="Medium">Medium</option>
               <option value="Large">Large</option>
               <option value="XL">Extra Large</option>
+
             </select>
 
           </div>
 
+
+          <!-- QUANTITY -->
 
           <div class="df-form-group">
 
@@ -286,23 +332,32 @@
           </div>
 
 
+          <!-- DELIVERY ADDRESS -->
+
           <div class="df-form-group">
 
-            <label for="delivery-address">Complete Delivery Address</label>
+            <label for="delivery-address">
+              Complete Delivery Address
+            </label>
 
             <textarea
               id="delivery-address"
               name="Delivery Address"
               placeholder="House number, street, barangay, city, province"
               rows="3"
+              autocomplete="street-address"
               required></textarea>
 
           </div>
 
 
+          <!-- ADDITIONAL NOTES -->
+
           <div class="df-form-group">
 
-            <label for="order-notes">Additional Notes (Optional)</label>
+            <label for="order-notes">
+              Additional Notes (Optional)
+            </label>
 
             <textarea
               id="order-notes"
@@ -313,18 +368,32 @@
           </div>
 
 
-          <!-- Total Price -->
+          <!-- TOTAL AMOUNT -->
+
+          <input
+            type="hidden"
+            id="submitted-total"
+            name="Total Amount"
+            value="299">
 
           <div class="df-final-total">
+
             <span>Total Amount</span>
+
             <strong id="final-total">₱299</strong>
+
           </div>
 
 
-          <!-- Submit Order -->
+          <!-- SUBMIT ORDER -->
 
-          <button type="submit" class="df-btn-order df-submit-order">
+          <button
+            type="submit"
+            class="df-btn-order df-submit-order"
+            id="submit-order">
+
             SUBMIT ORDER
+
           </button>
 
         </form>
@@ -368,6 +437,8 @@
 
   <script>
 
+    // PRODUCT SETTINGS
+
     const productPrice = 299;
 
     const quantityInput = document.getElementById("quantity");
@@ -376,8 +447,17 @@
     const shirtSize = document.getElementById("shirt-size");
     const orderSize = document.getElementById("order-size");
 
+    const orderForm = document.getElementById("dailyform-order-form");
 
-    // Update quantity and total price
+
+    // FORMAT PRICE
+
+    function formatPrice(amount) {
+      return "₱" + amount.toLocaleString("en-PH");
+    }
+
+
+    // UPDATE ORDER SUMMARY
 
     function updateOrderSummary() {
 
@@ -390,87 +470,195 @@
 
       const total = productPrice * quantity;
 
-      document.getElementById("summary-quantity").textContent = quantity;
+      // Update quantity
+
+      document.getElementById("summary-quantity").textContent =
+        quantity;
+
+      // Update size
+
+      document.getElementById("summary-size").textContent =
+        shirtSize.value || "Not selected";
+
+      // Update subtotal
 
       document.getElementById("summary-total").textContent =
-        "₱" + total.toLocaleString("en-PH");
+        formatPrice(total);
+
+      // Update final total
 
       document.getElementById("final-total").textContent =
-        "₱" + total.toLocaleString("en-PH");
+        formatPrice(total);
+
+      // Update hidden submitted total
+
+      document.getElementById("submitted-total").value =
+        formatPrice(total);
+
     }
 
 
-    // Increase or decrease quantity
+    // INCREASE QUANTITY
 
-    function changeQuantity(amount) {
+    document.getElementById("increase-quantity")
+      .addEventListener("click", function() {
 
-      let quantity = parseInt(quantityInput.value) || 1;
+        let quantity = parseInt(quantityInput.value) || 1;
 
-      quantity += amount;
+        if (quantity < 99) {
+          quantityInput.value = quantity + 1;
+        }
 
-      quantity = Math.max(1, Math.min(99, quantity));
+        updateOrderSummary();
 
-      quantityInput.value = quantity;
+      });
+
+
+    // DECREASE QUANTITY
+
+    document.getElementById("decrease-quantity")
+      .addEventListener("click", function() {
+
+        let quantity = parseInt(quantityInput.value) || 1;
+
+        if (quantity > 1) {
+          quantityInput.value = quantity - 1;
+        }
+
+        updateOrderSummary();
+
+      });
+
+
+    // MANUAL QUANTITY INPUT
+
+    quantityInput.addEventListener("input", function() {
 
       updateOrderSummary();
-    }
+
+    });
+
+    quantityInput.addEventListener("change", function() {
+
+      updateOrderSummary();
+
+    });
 
 
-    // Manual quantity input
-
-    quantityInput.addEventListener("change", updateOrderSummary);
+    // ORDER FORM QUANTITY INPUT
 
     orderQuantity.addEventListener("input", function() {
 
-      let quantity = parseInt(this.value) || 1;
+      quantityInput.value = this.value;
 
-      quantity = Math.max(1, Math.min(99, quantity));
+      updateOrderSummary();
 
-      quantityInput.value = quantity;
-      orderQuantity.value = quantity;
+    });
+
+    orderQuantity.addEventListener("change", function() {
 
       updateOrderSummary();
 
     });
 
 
-    // Synchronize shirt size
+    // SYNCHRONIZE SHIRT SIZE
 
     shirtSize.addEventListener("change", function() {
+
       orderSize.value = this.value;
+
+      updateOrderSummary();
+
     });
 
     orderSize.addEventListener("change", function() {
+
       shirtSize.value = this.value;
-    });
 
-
-    // Initialize order summary
-
-    updateOrderSummary();
-
-
-    // Validate size before proceeding to order section
-
-    document.getElementById("order-now").addEventListener("click", function(event) {
-
-      if (!shirtSize.value) {
-
-        event.preventDefault();
-
-        alert("Please choose your shirt size before proceeding.");
-
-        shirtSize.focus();
-
-        return;
-      }
-
-      orderSize.value = shirtSize.value;
       updateOrderSummary();
 
     });
 
-  </script>
 
+    // ORDER NOW BUTTON VALIDATION
+
+    document.getElementById("order-now")
+      .addEventListener("click", function(event) {
+
+        if (!shirtSize.value) {
+
+          event.preventDefault();
+
+          alert("Please select your shirt size before proceeding.");
+
+          shirtSize.focus();
+
+          return;
+
+        }
+
+        orderSize.value = shirtSize.value;
+
+        updateOrderSummary();
+
+      });
+
+
+    // VALIDATE AND PREPARE FORM SUBMISSION
+
+    orderForm.addEventListener("submit", function(event) {
+
+      // Check shirt size
+
+      if (!orderSize.value) {
+
+        event.preventDefault();
+
+        alert("Please select a shirt size.");
+
+        orderSize.focus();
+
+        return;
+
+      }
+
+      // Check quantity
+
+      const quantity = parseInt(orderQuantity.value);
+
+      if (!Number.isInteger(quantity) || quantity < 1 || quantity > 99) {
+
+        event.preventDefault();
+
+        alert("Please enter a valid quantity between 1 and 99.");
+
+        orderQuantity.focus();
+
+        return;
+
+      }
+
+      // Synchronize final order details
+
+      shirtSize.value = orderSize.value;
+      quantityInput.value = quantity;
+
+      updateOrderSummary();
+
+      // Include customer email for reply
+
+      document.getElementById("reply-email").value =
+        document.getElementById("customer-email").value;
+
+    });
+
+
+    // INITIALIZE ORDER SUMMARY
+
+    updateOrderSummary();
+
+  </script>
 </body>
+
 </html>
