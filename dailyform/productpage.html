@@ -47,107 +47,109 @@
       font: inherit;
     }
 
-   /* HEADER */
-  .df-header {
+   
+/* HEADER */
+.df-header {
     width: 100%;
-    height: 63px;
+    height: 65px;
     background-color: #DDC8BA;
-    padding: 0 24px;
+    padding: 0 24px 0 16px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: relative;
     z-index: 1000;
-  }
+}
 
-  /* LOGO */
-  .df-header-logo {
+/* LOGO */
+.df-header-logo {
     display: flex;
     align-items: center;
-  }
+    flex-shrink: 0;
+}
 
-  .df-header-logo img {
+.df-header-logo img {
     width: 44px;
     height: 44px;
     object-fit: contain;
     border-radius: 8px;
-  }
+}
 
 /* NAVIGATION */
-  .df-header-nav {
+.df-header-nav {
     display: flex;
     align-items: center;
-    gap: 35px;
+    gap: 40px;
     height: 100%;
-  }
+}
 
-  .df-header-link {
+.df-header-link {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 12px;
     font-family: "Tenor Sans", sans-serif;
-    font-size: 24px;
-    letter-spacing: 1px;
+    font-size: 26px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
     color: #0D0A07;
     text-decoration: none;
     text-transform: uppercase;
     white-space: nowrap;
     transition: color 0.2s;
-  }
+}
 
-  .df-header-link:hover {
+.df-header-link:hover {
     color: #68513C;
-  }
+}
 
 /* SHOP DROPDOWN */
-  .df-dropdown {
+.df-dropdown {
     position: relative;
     height: 100%;
     display: flex;
     align-items: center;
-  }
+}
 
-  .arrow {
-    font-size: 16px;
-  }
+.arrow {
+    font-size: 17px;
+}
 
-  .df-dropdown-menu {
+.df-dropdown-menu {
     display: none;
     position: absolute;
     top: 100%;
     right: 0;
-    min-width: 192px;
+    min-width: 200px;
     background-color: #FFFFFF;
-    border: 1px solid #ccc;
-    border-radius: 6px;
+    border: 1px solid #DDC8BA;
+    border-radius: 4px;
     padding: 6px 0;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.12);
     z-index: 1001;
-  }
+}
 
-  .df-dropdown-menu a {
+.df-dropdown-menu a {
     display: block;
-    padding: 9px 16px;
+    padding: 10px 16px;
     font-family: "Jost", sans-serif;
-    font-size: 15px;
+    font-size: 14px;
     color: #0D0A07;
     text-decoration: none;
-    white-space: nowrap;
-  }
+}
 
-  .df-dropdown-menu a:hover {
+.df-dropdown-menu a:hover {
     background-color: #F8F5EE;
-  }
+}
 
-  /* SHOW DROPDOWN ON HOVER OR KEYBOARD FOCUS */
-  .df-dropdown:hover .df-dropdown-menu,
-  .df-dropdown:focus-within .df-dropdown-menu {
+.df-dropdown:hover .df-dropdown-menu,
+.df-dropdown:focus-within .df-dropdown-menu {
     display: block;
-  }
+}
 
-  /* RESPONSIVE */
+/* MOBILE */
 @media (max-width: 576px) {
     .df-header {
+        height: 60px;
         padding: 0 12px;
     }
 
@@ -157,18 +159,16 @@
     }
 
     .df-header-nav {
-        gap: 15px;
+        gap: 12px;
     }
 
     .df-header-link {
-        font-size: 14px;
+        font-size: 13px;
         gap: 4px;
-    }
-
-    .df-dropdown-menu {
-        min-width: 170px;
+        letter-spacing: 0;
     }
 }
+
     /* HERO TEXT */
 
     .df-brand {
@@ -647,18 +647,13 @@
 
 <body>
 
- <!-- HEADER -->
 <header class="df-header">
-
-    <!-- LOGO -->
     <a href="index.html" class="df-header-logo">
         <img src="images/logodf.png" alt="Dailyform">
     </a>
 
-    <!-- NAVIGATION -->
     <nav class="df-header-nav" aria-label="Main navigation">
 
-        <!-- SHOP DROPDOWN -->
         <div class="df-dropdown">
             <a href="#" class="df-header-link">
                 SHOP <span class="arrow">▾</span>
@@ -671,10 +666,7 @@
             </div>
         </div>
 
-        <!-- ABOUT -->
-        <a href="about.html" class="df-header-link">ABOUT</a>
-
-        <!-- CONTACT -->
+        <a href="404.html" class="df-header-link">ABOUT</a>
         <a href="contact.html" class="df-header-link">CONTACT</a>
 
     </nav>
