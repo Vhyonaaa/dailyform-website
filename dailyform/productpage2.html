@@ -538,94 +538,27 @@
 
 <body>
 
-<!-- HEADER / NAVBAR -->
-<header>
-    <nav class="navbar navbar-expand-md df-navbar" aria-label="Main navigation">
+<!-- HEADER -->
+<header class="df-header">
+    <a href="index.html" class="df-header-logo">
+        <img src="images/logodf.png" alt="Dailyform">
+    </a>
 
-        <div class="container-fluid px-3 px-md-4">
-
-            <!-- LOGO -->
-            <a class="navbar-brand" href="index.html">
-                <img src="images/logodf.png"
-                     alt="Dailyform logo"
-                     class="df-logo">
+    <nav class="df-header-nav" aria-label="Main navigation">
+        <div class="df-dropdown">
+            <a href="#" class="df-header-link">
+                SHOP <span class="arrow">▾</span>
             </a>
 
-            <!-- MOBILE TOGGLE -->
-            <button class="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#mainNav"
-                    aria-controls="mainNav"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation">
-
-                <span class="navbar-toggler-icon"></span>
-
-            </button>
-
-            <!-- NAVIGATION LINKS -->
-            <div class="collapse navbar-collapse justify-content-end" id="mainNav">
-
-                <ul class="navbar-nav gap-md-4">
-
-                    <!-- SHOP DROPDOWN -->
-                    <li class="nav-item dropdown">
-
-                        <a class="nav-link dropdown-toggle df-nav-link"
-                           href="#"
-                           id="shopDropdown"
-                           role="button"
-                           data-bs-toggle="dropdown"
-                           aria-expanded="false">
-
-                            SHOP
-
-                        </a>
-
-                        <ul class="dropdown-menu" aria-labelledby="shopDropdown">
-
-                            <li>
-                                <a class="dropdown-item" href="productpage.html">
-                                    Do Good Work Tee
-                                </a>
-                            </li>
-
-                            <li>
-                                <a class="dropdown-item" href="productpage2.html">
-                                    Don't Be Late Tee
-                                </a>
-                            </li>
-
-                            <li>
-                                <a class="dropdown-item" href="productpage3.html">
-                                    Everyday Comfort Tee
-                                </a>
-                            </li>
-
-                        </ul>
-
-                    </li>
-
-                    <!-- ABOUT -->
-                    <li class="nav-item">
-                        <a class="nav-link df-nav-link" href="about.html">
-                            ABOUT
-                        </a>
-                    </li>
-
-                    <!-- CONTACT -->
-                    <li class="nav-item">
-                        <a class="nav-link df-nav-link" href="contact.html">
-                            CONTACT
-                        </a>
-                    </li>
-
-                </ul>
-
+            <div class="df-dropdown-menu">
+                <a href="productpage.html">Do Good Work Tee</a>
+                <a href="productpage2.html">Don't Be Late Tee</a>
+                <a href="productpage3.html">Everyday Comfort Tee</a>
             </div>
-
         </div>
+
+        <a href="about.html" class="df-header-link">ABOUT</a>
+        <a href="contact.html" class="df-header-link">CONTACT</a>
     </nav>
 </header>
 
