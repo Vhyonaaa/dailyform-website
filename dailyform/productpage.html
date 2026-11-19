@@ -47,68 +47,128 @@
       font: inherit;
     }
 
-    /* NAVBAR */
+   /* HEADER */
+.df-header {
+    width: 100%;
+    height: 63px;
+    background-color: #DDC8BA;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 1000;
+}
 
-    .df-navbar {
-      background-color: var(--df-nav-bg);
-      padding: 1rem 6%;
+/* LOGO */
+.df-header-logo {
+    display: flex;
+    align-items: center;
+}
+
+.df-header-logo img {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+/* NAVIGATION */
+.df-header-nav {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    height: 100%;
+}
+
+.df-header-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: "Tenor Sans", sans-serif;
+    font-size: 24px;
+    letter-spacing: 1px;
+    color: #0D0A07;
+    text-decoration: none;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: color 0.2s;
+}
+
+.df-header-link:hover {
+    color: #68513C;
+}
+
+/* SHOP DROPDOWN */
+.df-dropdown {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.arrow {
+    font-size: 16px;
+}
+
+.df-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    min-width: 192px;
+    background-color: #FFFFFF;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 6px 0;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+    z-index: 1001;
+}
+
+.df-dropdown-menu a {
+    display: block;
+    padding: 9px 16px;
+    font-family: "Jost", sans-serif;
+    font-size: 15px;
+    color: #0D0A07;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.df-dropdown-menu a:hover {
+    background-color: #F8F5EE;
+}
+
+/* SHOW DROPDOWN ON HOVER OR KEYBOARD FOCUS */
+.df-dropdown:hover .df-dropdown-menu,
+.df-dropdown:focus-within .df-dropdown-menu {
+    display: block;
+}
+
+/* RESPONSIVE */
+@media (max-width: 576px) {
+    .df-header {
+        padding: 0 12px;
     }
 
-    .df-nav-container {
-      max-width: 1300px;
-      margin: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1.5rem;
+    .df-header-logo img {
+        width: 38px;
+        height: 38px;
     }
 
-    .df-logo {
-      height: 44px;
-      width: auto;
-      border-radius: 8px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      color: var(--df-brown);
-      line-height: 1;
+    .df-header-nav {
+        gap: 15px;
     }
 
-    .df-logo-main {
-      font-family: "Tenor Sans", sans-serif;
-      font-size: 2.3rem;
+    .df-header-link {
+        font-size: 14px;
+        gap: 4px;
     }
 
-    .df-logo-sub {
-      font-family: "League Spartan", sans-serif;
-      font-size: 0.55rem;
-      letter-spacing: 2px;
+    .df-dropdown-menu {
+        min-width: 170px;
     }
-
-    .df-nav-links {
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-    }
-
-    .df-nav-links a,
-    .df-nav-link {
-      font-family: "Tenor Sans", sans-serif;
-      font-size: 1rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: var(--df-text);
-      transition: 0.2s;
-    }
-
-    .df-nav-links a:hover,
-    .df-nav-links a:focus,
-    .df-nav-link:hover,
-    .df-nav-link:focus {
-      color: var(--df-brown);
-    }
-
+}
     /* HERO TEXT */
 
     .df-brand {
@@ -587,24 +647,38 @@
 
 <body>
 
-  <!-- NAVIGATION BAR -->
+ <!-- HEADER -->
+<header class="df-header">
 
-  <header class="df-navbar">
-    <div class="df-nav-container">
+    <!-- LOGO -->
+    <a href="index.html" class="df-header-logo">
+        <img src="images/logodf.png" alt="Dailyform">
+    </a>
 
-      <a href="index.html" class="df-logo" aria-label="DAILYFORM Home">
-        <span class="df-logo-main">df</span>
-        <span class="df-logo-sub">EVERYDAY STYLE</span>
-      </a>
+    <!-- NAVIGATION -->
+    <nav class="df-header-nav" aria-label="Main navigation">
 
-      <nav class="df-nav-links">
-        <a href="index.html">HOME</a>
-        <a href="#shop">SHOP</a>
-        <a href="#order">YOUR ORDER</a>
-      </nav>
+        <!-- SHOP DROPDOWN -->
+        <div class="df-dropdown">
+            <a href="#" class="df-header-link">
+                SHOP <span class="arrow">▾</span>
+            </a>
 
-    </div>
-  </header>
+            <div class="df-dropdown-menu">
+                <a href="productpage.html">Do Good Work Tee</a>
+                <a href="productpage2.html">Don't Be Late Tee</a>
+                <a href="productpage3.html">Everyday Comfort Tee</a>
+            </div>
+        </div>
+
+        <!-- ABOUT -->
+        <a href="404.html" class="df-header-link">ABOUT</a>
+
+        <!-- CONTACT -->
+        <a href="contact.html" class="df-header-link">CONTACT</a>
+
+    </nav>
+</header>
 
   <!-- PRODUCT PAGE -->
 
