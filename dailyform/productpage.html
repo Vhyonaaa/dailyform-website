@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,10 +16,6 @@
 
   <!-- EMBEDDED CSS -->
   <style>
-
-    /* =====================================
-       ORIGINAL DAILYFORM CSS
-    ===================================== */
 
     :root {
       --df-nav-bg: #DDC8BA;
@@ -345,7 +340,7 @@
 
 
     /* =====================================
-       ORDER SUMMARY
+       ORDER SUMMARY AND FORM
     ===================================== */
 
     .df-order-section {
@@ -405,6 +400,66 @@
 
     .df-summary-row strong {
       text-align: right;
+    }
+
+    /* ----- Customer Order Form ----- */
+
+    .df-order-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .df-form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .df-form-group label {
+      font-family: "League Spartan", sans-serif;
+      font-weight: 600;
+    }
+
+    .df-form-group input,
+    .df-form-group select,
+    .df-form-group textarea {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      background: #fff;
+      border: 1px solid var(--df-nav-bg);
+      border-radius: 8px;
+      color: var(--df-text);
+    }
+
+    .df-form-group textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .df-form-group input:focus,
+    .df-form-group select:focus,
+    .df-form-group textarea:focus {
+      outline: 2px solid var(--df-brown);
+      outline-offset: 2px;
+    }
+
+    .df-form-total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.2rem 0;
+      margin-top: 0.5rem;
+      border-top: 1px solid var(--df-nav-bg);
+      font-family: "League Spartan", sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .df-submit-order {
+      width: 100%;
+      margin-top: 0.5rem;
     }
 
     .df-back-link {
@@ -699,7 +754,7 @@
 
 
     <!-- =====================================
-         ORDER SUMMARY
+         ORDER SUMMARY AND CUSTOMER FORM
     ====================================== -->
 
     <section class="df-order-section" id="order">
@@ -710,11 +765,11 @@
           DAILYFORM | ORDER DETAILS
         </p>
 
-        <h2>YOUR DO GOOD WORK SHIRT</h2>
+        <h2>COMPLETE YOUR ORDER</h2>
 
         <p class="df-order-description">
-          Review your selected product, size, and quantity before placing your order.
-          Clicking ORDER NOW will open your email application with your order details.
+          Please provide your information and review your order
+          details before submitting.
         </p>
 
 
@@ -728,7 +783,7 @@
           </div>
 
           <div class="df-summary-row">
-            <span>Price</span>
+            <span>Price per shirt</span>
             <strong>₱299</strong>
           </div>
 
@@ -743,6 +798,159 @@
           </div>
 
         </div>
+
+
+        <!-- CUSTOMER ORDER FORM -->
+
+        <form id="order-form" class="df-order-form">
+
+          <!-- HIDDEN ORDER INFORMATION -->
+
+          <input type="hidden" name="Product" value="DO GOOD WORK">
+
+          <input type="hidden" name="Price per shirt" value="299">
+
+          <input type="hidden" name="Total Amount" id="hidden-total" value="299">
+
+
+          <!-- FULL NAME -->
+
+          <div class="df-form-group">
+
+            <label for="customer-name">Full Name *</label>
+
+            <input
+              type="text"
+              id="customer-name"
+              name="Full Name"
+              placeholder="Enter your full name"
+              required>
+
+          </div>
+
+
+          <!-- EMAIL ADDRESS -->
+
+          <div class="df-form-group">
+
+            <label for="customer-email">Email Address *</label>
+
+            <input
+              type="email"
+              id="customer-email"
+              name="_replyto"
+              placeholder="Enter your email address"
+              required>
+
+          </div>
+
+
+          <!-- CONTACT NUMBER -->
+
+          <div class="df-form-group">
+
+            <label for="customer-contact">Contact Number *</label>
+
+            <input
+              type="tel"
+              id="customer-contact"
+              name="Contact Number"
+              placeholder="Enter your contact number"
+              required>
+
+          </div>
+
+
+          <!-- SHIRT SIZE -->
+
+          <div class="df-form-group">
+
+            <label for="order-size">Shirt Size *</label>
+
+            <select id="order-size" name="Shirt Size" required>
+
+              <option value="">Choose a size</option>
+              <option value="Small">Small</option>
+              <option value="Medium">Medium</option>
+              <option value="Large">Large</option>
+              <option value="XL">Extra Large</option>
+
+            </select>
+
+          </div>
+
+
+          <!-- QUANTITY -->
+
+          <div class="df-form-group">
+
+            <label for="order-quantity">Quantity *</label>
+
+            <input
+              type="number"
+              id="order-quantity"
+              name="Quantity"
+              value="1"
+              min="1"
+              max="99"
+              required>
+
+          </div>
+
+
+          <!-- DELIVERY ADDRESS -->
+
+          <div class="df-form-group">
+
+            <label for="delivery-address">Complete Delivery Address *</label>
+
+            <textarea
+              id="delivery-address"
+              name="Delivery Address"
+              placeholder="Enter your complete delivery address"
+              required></textarea>
+
+          </div>
+
+
+          <!-- ADDITIONAL NOTES -->
+
+          <div class="df-form-group">
+
+            <label for="additional-notes">
+              Additional Notes (Optional)
+            </label>
+
+            <textarea
+              id="additional-notes"
+              name="Additional Notes"
+              placeholder="Enter any additional instructions"></textarea>
+
+          </div>
+
+
+          <!-- FINAL TOTAL -->
+
+          <div class="df-form-total">
+
+            <span>FINAL TOTAL</span>
+
+            <strong id="final-total">₱299</strong>
+
+          </div>
+
+
+          <!-- SUBMIT ORDER -->
+
+          <button
+            type="submit"
+            class="df-btn-order df-submit-order">
+
+            SUBMIT ORDER
+
+          </button>
+
+        </form>
 
 
         <a href="#shop" class="df-back-link">
@@ -783,20 +991,30 @@
 
   <script>
 
-    // PRODUCT INFORMATION
+    // =====================================
+    // DAILYFORM PRODUCT INFORMATION
+    // =====================================
 
     const productPrice = 299;
     const productName = "DO GOOD WORK";
     const recipient = "kbdagdagan1@up.edu.ph";
 
 
+    // =====================================
     // GET HTML ELEMENTS
+    // =====================================
 
     const quantityInput = document.getElementById("quantity");
     const shirtSize = document.getElementById("shirt-size");
 
+    const orderForm = document.getElementById("order-form");
+    const orderSize = document.getElementById("order-size");
+    const orderQuantity = document.getElementById("order-quantity");
 
-    // UPDATE QUANTITY AND TOTAL
+
+    // =====================================
+    // UPDATE ORDER SUMMARY
+    // =====================================
 
     function updateOrderSummary() {
 
@@ -808,16 +1026,24 @@
 
       const total = productPrice * quantity;
 
-      document.getElementById("summary-quantity").textContent =
-        quantity;
+      document.getElementById("summary-quantity").textContent = quantity;
 
       document.getElementById("summary-total").textContent =
         "₱" + total.toLocaleString("en-PH");
 
+      document.getElementById("final-total").textContent =
+        "₱" + total.toLocaleString("en-PH");
+
+      document.getElementById("hidden-total").value = total;
+
+      orderQuantity.value = quantity;
+
     }
 
 
-    // CHANGE QUANTITY
+    // =====================================
+    // CHANGE PRODUCT QUANTITY
+    // =====================================
 
     function changeQuantity(amount) {
 
@@ -834,21 +1060,66 @@
     }
 
 
+    // =====================================
     // MANUAL QUANTITY INPUT
+    // =====================================
 
     quantityInput.addEventListener("change", updateOrderSummary);
 
 
+    // =====================================
+    // SYNCHRONIZE PRODUCT SIZE
+    // =====================================
+
+    shirtSize.addEventListener("change", function() {
+
+      orderSize.value = shirtSize.value;
+
+    });
+
+
+    // =====================================
+    // SYNCHRONIZE FORM SIZE
+    // =====================================
+
+    orderSize.addEventListener("change", function() {
+
+      shirtSize.value = orderSize.value;
+
+    });
+
+
+    // =====================================
+    // SYNCHRONIZE FORM QUANTITY
+    // =====================================
+
+    orderQuantity.addEventListener("change", function() {
+
+      let quantity = parseInt(orderQuantity.value) || 1;
+
+      quantity = Math.max(1, Math.min(99, quantity));
+
+      orderQuantity.value = quantity;
+      quantityInput.value = quantity;
+
+      updateOrderSummary();
+
+    });
+
+
+    // =====================================
     // INITIALIZE ORDER SUMMARY
+    // =====================================
 
     updateOrderSummary();
 
 
-    // ORDER NOW - OPEN CUSTOMER EMAIL APPLICATION
+    // =====================================
+    // ORDER NOW BUTTON
+    // SCROLL TO CUSTOMER ORDER FORM
+    // =====================================
 
     document.getElementById("order-now").addEventListener("click", function() {
-
-      // VALIDATE SHIRT SIZE
 
       if (!shirtSize.value) {
 
@@ -860,37 +1131,95 @@
 
       }
 
+      orderSize.value = shirtSize.value;
+      orderQuantity.value = quantityInput.value;
+
+      updateOrderSummary();
+
+      document.getElementById("order").scrollIntoView({
+        behavior: "smooth"
+      });
+
+    });
+
+
+    // =====================================
+    // SUBMIT ORDER - OPEN EMAIL APPLICATION
+    // =====================================
+
+    orderForm.addEventListener("submit", function(event) {
+
+      // PREVENT NORMAL FORM SUBMISSION
+
+      event.preventDefault();
+
+
       // GET ORDER DETAILS
 
-      const quantity = parseInt(quantityInput.value) || 1;
-      const size = shirtSize.value;
+      const size = orderSize.value;
+      const quantity = parseInt(orderQuantity.value) || 1;
       const total = productPrice * quantity;
+
+
+      // GET CUSTOMER INFORMATION
+
+      const customerName =
+        document.getElementById("customer-name").value.trim();
+
+      const customerEmail =
+        document.getElementById("customer-email").value.trim();
+
+      const customerContact =
+        document.getElementById("customer-contact").value.trim();
+
+      const deliveryAddress =
+        document.getElementById("delivery-address").value.trim();
+
+      const additionalNotes =
+        document.getElementById("additional-notes").value.trim();
+
 
       // EMAIL SUBJECT
 
       const subject = "DAILYFORM - " + productName + " ORDER";
 
+
       // EMAIL BODY
 
       const body =
+
         "Hello DAILYFORM!\n\n" +
-        "I would like to place an order with the following details:\n\n" +
-        "PRODUCT: " + productName + "\n" +
-        "PRICE: ₱" + productPrice + "\n" +
-        "SIZE: " + size + "\n" +
-        "QUANTITY: " + quantity + "\n" +
-        "TOTAL AMOUNT: ₱" + total.toLocaleString("en-PH") + "\n\n" +
-        "Please contact me regarding my order.\n\n" +
+
+        "I would like to place an order.\n\n" +
+
+        "CUSTOMER INFORMATION\n" +
+        "Full Name: " + customerName + "\n" +
+        "Email Address: " + customerEmail + "\n" +
+        "Contact Number: " + customerContact + "\n" +
+        "Delivery Address: " + deliveryAddress + "\n\n" +
+
+        "ORDER DETAILS\n" +
+        "Product: " + productName + "\n" +
+        "Price per shirt: ₱" + productPrice + "\n" +
+        "Shirt Size: " + size + "\n" +
+        "Quantity: " + quantity + "\n" +
+        "Total Amount: ₱" + total.toLocaleString("en-PH") + "\n\n" +
+
+        "ADDITIONAL NOTES\n" +
+        (additionalNotes || "None") + "\n\n" +
+
         "Thank you!";
 
-      // CREATE EMAIL LINK
+
+      // CREATE MAILTO LINK
 
       const mailtoLink =
         "mailto:" + recipient +
         "?subject=" + encodeURIComponent(subject) +
         "&body=" + encodeURIComponent(body);
 
-      // OPEN DEFAULT EMAIL APPLICATION
+
+      // OPEN VISITOR'S EMAIL APPLICATION
 
       window.location.href = mailtoLink;
 
