@@ -1,581 +1,653 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>DAILYFORM | Everyday Comfort</title>
+  <meta name="description" content="Shop the DAILYFORM Everyday Comfort shirt. Everyday comfort, your everyday style.">
 
-  <!-- GOOGLE FONTS -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <style>
+    :root {
+      --df-nav-bg: #DDC8BA;
+      --df-page-bg: #F8F5EE;
+      --df-brown: #68513C;
+      --df-text: #0D0A07;
+      --df-btn-bg: #68513C;
+      --df-btn-text: #FFFFFF;
+      --df-border: #D8C8B9;
+      --df-muted: #817568;
+    }
 
-  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&family=League+Spartan:wght@300;400;500;600;700&family=Tenor+Sans&display=swap" rel="stylesheet">
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-  <!-- EXTERNAL CSS -->
-  <link rel="stylesheet" href="style.css">
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--df-page-bg);
+      color: var(--df-text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* NAVIGATION */
+    .navbar {
+      background: var(--df-nav-bg);
+      width: 100%;
+      padding: 18px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      color: var(--df-brown);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      transition: opacity 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      opacity: 0.6;
+    }
+
+    /* PRODUCT SECTION */
+    .product-container {
+      width: 86%;
+      max-width: 1200px;
+      margin: 65px auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 70px;
+    }
+
+    .product-image {
+      background: #E9DFD4;
+      width: 100%;
+      min-height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      max-height: 600px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .product-info {
+      padding: 20px 0;
+    }
+
+    .product-label {
+      color: var(--df-brown);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      margin-bottom: 18px;
+    }
+
+    .product-info h1 {
+      font-size: clamp(38px, 5vw, 65px);
+      line-height: 1.05;
+      font-weight: 900;
+      letter-spacing: -2px;
+      margin-bottom: 22px;
+    }
+
+    .product-description {
+      max-width: 450px;
+      font-size: 15px;
+      color: #5F554B;
+      margin-bottom: 25px;
+    }
+
+    .product-price {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--df-brown);
+      margin-bottom: 28px;
+    }
+
+    .order-button {
+      display: inline-block;
+      background: var(--df-btn-bg);
+      color: var(--df-btn-text);
+      padding: 15px 35px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .order-button:hover {
+      background: #493828;
+    }
+
+    /* ORDER SECTION */
+    .order-section {
+      background: #EDE3D9;
+      padding: 75px 7%;
+      scroll-margin-top: 30px;
+    }
+
+    .order-wrapper {
+      max-width: 1050px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 0.8fr;
+      gap: 65px;
+      align-items: start;
+    }
+
+    .order-heading {
+      font-size: 35px;
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    .order-subheading {
+      color: #66594D;
+      font-size: 14px;
+      margin-bottom: 30px;
+    }
+
+    .order-form {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .form-group label {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid var(--df-border);
+      background: #F8F5EE;
+      font-family: inherit;
+      font-size: 14px;
+      color: var(--df-text);
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--df-brown);
+    }
+
+    .form-group textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .submit-button {
+      width: 100%;
+      padding: 16px;
+      background: var(--df-btn-bg);
+      color: white;
+      border: none;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .submit-button:hover {
+      background: #493828;
+    }
+
+    /* ORDER SUMMARY */
+    .order-summary {
+      background: var(--df-page-bg);
+      padding: 30px;
+      border: 1px solid var(--df-border);
+    }
+
+    .order-summary h3 {
+      font-size: 18px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      margin-bottom: 25px;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      padding: 13px 0;
+      border-bottom: 1px solid var(--df-border);
+      font-size: 13px;
+    }
+
+    .summary-row span:first-child {
+      color: var(--df-muted);
+    }
+
+    .summary-total {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 22px;
+      font-size: 19px;
+      font-weight: 900;
+    }
+
+    .summary-note {
+      font-size: 11px;
+      color: var(--df-muted);
+      margin-top: 20px;
+    }
+
+    /* FOOTER */
+    .footer {
+      background: var(--df-brown);
+      color: #F8F5EE;
+      padding: 35px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-logo {
+      font-size: 21px;
+      font-weight: 900;
+      letter-spacing: 2px;
+    }
+
+    .footer p,
+    .footer a {
+      font-size: 11px;
+      letter-spacing: 1px;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* RESPONSIVE DESIGN */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 16px 5%;
+      }
+
+      .logo {
+        font-size: 21px;
+      }
+
+      .nav-links {
+        gap: 15px;
+      }
+
+      .nav-links a {
+        font-size: 10px;
+      }
+
+      .product-container {
+        width: 90%;
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin: 35px auto 55px;
+      }
+
+      .product-image {
+        min-height: 350px;
+      }
+
+      .product-info h1 {
+        font-size: 48px;
+      }
+
+      .order-wrapper {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .order-section {
+        padding: 55px 6%;
+      }
+
+      .footer {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .navbar {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .nav-links {
+        gap: 20px;
+      }
+
+      .product-info h1 {
+        font-size: 40px;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- NAVIGATION BAR -->
-  <header class="df-navbar">
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <a href="index.html" class="logo">DAILYFORM.</a>
 
-    <div class="df-nav-container">
+    <ul class="nav-links">
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="index.html#shop">SHOP</a></li>
+      <li><a href="#order">YOUR ORDER</a></li>
+    </ul>
+  </nav>
 
-      <a href="#shop" class="df-logo">
-        <span class="df-logo-main">df</span>
-        <span class="df-logo-sub">EVERYDAY STYLE</span>
-      </a>
-
-      <nav class="df-nav-links">
-        <a href="#shop">SHOP</a>
-        <a href="#order">YOUR ORDER</a>
-      </nav>
-
-    </div>
-
-  </header>
-
-
-  <!-- MAIN CONTENT -->
+  <!-- PRODUCT DETAILS -->
   <main>
+    <section class="product-container">
 
-    <!-- PRODUCT SECTION -->
-    <section class="df-product-page" id="shop">
-
-      <div class="df-page-heading">
-
-        <h1>
-          EVERYDAY COMFORT.<br>
-          YOUR EVERYDAY STYLE.
-        </h1>
-
-        <a href="#order" class="df-cart" aria-label="Go to your order">
-          🛒
-        </a>
-
+      <div class="product-image">
+        <img
+          src="images/everyday-comfort.jpg"
+          alt="DAILYFORM Everyday Comfort graphic shirt"
+        >
       </div>
 
+      <div class="product-info">
+        <p class="product-label">DAILYFORM COLLECTION</p>
 
-      <div class="df-product-container">
+        <h1>EVERYDAY<br>COMFORT.</h1>
 
-        <!-- PRODUCT IMAGE -->
-        <div class="df-product-image-container">
+        <p class="product-description">
+          Made for the everyday. EVERYDAY COMFORT brings together a
+          simple design and effortless style, making it an easy choice
+          for your daily wardrobe.
+        </p>
 
-          <img
-            src="images/everyday-comfort.jpg"
-            alt="DAILYFORM Everyday Comfort"
-            class="df-product-image">
+        <p class="product-price">₱299.00</p>
 
-        </div>
-
-
-        <!-- PRODUCT DETAILS -->
-        <div class="df-product-details">
-
-          <h2 class="df-product-name">
-            EVERYDAY COMFORT
-          </h2>
-
-          <p class="df-product-description">
-            Made for everyday wear. Experience a simple,
-            comfortable, and timeless essential that fits
-            effortlessly into your daily wardrobe.
-          </p>
-
-          <p class="df-product-price">₱299</p>
-
-
-          <!-- SIZE SELECTION -->
-          <div class="df-size-container">
-
-            <label for="shirt-size">Choose a size</label>
-
-            <select id="shirt-size" required>
-
-              <option value="" disabled selected>
-                Choose a size
-              </option>
-
-              <option value="Small">Small</option>
-              <option value="Medium">Medium</option>
-              <option value="Large">Large</option>
-              <option value="XL">Extra Large</option>
-
-            </select>
-
-          </div>
-
-
-          <!-- QUANTITY CONTROLS -->
-          <div class="df-quantity-container">
-
-            <button
-              type="button"
-              class="df-quantity-btn"
-              onclick="changeQuantity(-1)"
-              aria-label="Decrease quantity">
-              −
-            </button>
-
-            <input
-              type="number"
-              id="quantity"
-              value="1"
-              min="1"
-              max="99"
-              aria-label="Quantity">
-
-            <button
-              type="button"
-              class="df-quantity-btn"
-              onclick="changeQuantity(1)"
-              aria-label="Increase quantity">
-              +
-            </button>
-
-          </div>
-
-
-          <!-- ORDER NOW BUTTON -->
-          <a href="#order" class="df-btn-order" id="order-now">
-            ORDER NOW
-          </a>
-
-        </div>
-
+        <a href="#order" class="order-button">ORDER NOW</a>
       </div>
 
     </section>
 
+    <!-- ORDER FORM -->
+    <section class="order-section" id="order">
 
-    <!-- ORDER FORM SECTION -->
-    <section class="df-order-section" id="order">
+      <div class="order-wrapper">
 
-      <div class="df-order-container">
+        <div>
+          <h2 class="order-heading">YOUR EVERYDAY COMFORT SHIRT.</h2>
 
-        <p class="df-eyebrow">
-          DAILYFORM | ORDER DETAILS
-        </p>
+          <p class="order-subheading">
+            Fill out the form below to place your order.
+          </p>
 
-        <h2>EVERYDAY COMFORT</h2>
+          <form
+            class="order-form"
+            action="https://formspree.io/f/YOUR_FORM_ID"
+            method="POST"
+          >
 
-        <p class="df-order-description">
-          Complete the information below to place your order.
-        </p>
+            <input
+              type="hidden"
+              name="_subject"
+              value="New DAILYFORM - EVERYDAY COMFORT Order"
+            >
 
+            <input
+              type="hidden"
+              name="Product"
+              value="EVERYDAY COMFORT"
+            >
+
+            <input
+              type="hidden"
+              name="Price"
+              value="299"
+            >
+
+            <div class="form-group">
+              <label for="customer-name">FULL NAME</label>
+              <input
+                type="text"
+                id="customer-name"
+                name="Full Name"
+                placeholder="Enter your full name"
+                required
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="email">EMAIL ADDRESS</label>
+              <input
+                type="email"
+                id="email"
+                name="Email"
+                placeholder="Enter your email address"
+                required
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="phone">CONTACT NUMBER</label>
+              <input
+                type="tel"
+                id="phone"
+                name="Contact Number"
+                placeholder="Enter your contact number"
+                required
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="address">COMPLETE DELIVERY ADDRESS</label>
+              <textarea
+                id="address"
+                name="Delivery Address"
+                placeholder="House number, street, barangay, city, province, and postal code"
+                required
+              ></textarea>
+            </div>
+
+            <div class="form-row">
+
+              <div class="form-group">
+                <label for="size">SHIRT SIZE</label>
+                <select id="size" name="Size" required>
+                  <option value="">Select size</option>
+                  <option value="Small">Small</option>
+                  <option value="Medium">Medium</option>
+                  <option value="Large">Large</option>
+                  <option value="Extra Large">Extra Large</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="quantity">QUANTITY</label>
+                <input
+                  type="number"
+                  id="quantity"
+                  name="Quantity"
+                  min="1"
+                  max="99"
+                  value="1"
+                  required
+                >
+              </div>
+
+            </div>
+
+            <div class="form-group">
+              <label for="payment">PAYMENT METHOD</label>
+              <select id="payment" name="Payment Method" required>
+                <option value="">Select payment method</option>
+                <option value="GCash">GCash</option>
+                <option value="Bank Transfer">Bank Transfer</option>
+                <option value="Cash on Delivery">Cash on Delivery</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="notes">ADDITIONAL NOTES (OPTIONAL)</label>
+              <textarea
+                id="notes"
+                name="Additional Notes"
+                placeholder="Add any special instructions here"
+              ></textarea>
+            </div>
+
+            <button type="submit" class="submit-button">
+              PLACE MY ORDER
+            </button>
+
+          </form>
+        </div>
 
         <!-- ORDER SUMMARY -->
-        <div class="df-order-summary">
+        <aside class="order-summary">
 
-          <div class="df-summary-row">
+          <h3>ORDER SUMMARY</h3>
+
+          <div class="summary-row">
             <span>Product</span>
             <strong>EVERYDAY COMFORT</strong>
           </div>
 
-          <div class="df-summary-row">
-            <span>Price per item</span>
-            <strong>₱299</strong>
+          <div class="summary-row">
+            <span>Price per shirt</span>
+            <strong>₱299.00</strong>
           </div>
 
-          <div class="df-summary-row">
+          <div class="summary-row">
             <span>Quantity</span>
             <strong id="summary-quantity">1</strong>
           </div>
 
-          <div class="df-summary-row">
-            <span>Subtotal</span>
-            <strong id="summary-total">₱299</strong>
+          <div class="summary-total">
+            <span>Total</span>
+            <span id="summary-total">₱299.00</span>
           </div>
 
-        </div>
+          <p class="summary-note">
+            * Delivery fees, if applicable, are not included in the
+            displayed product total.
+          </p>
 
-
-        <!-- CUSTOMER ORDER FORM -->
-        <form
-          class="df-order-form"
-          id="customer-order-form"
-          action="https://formspree.io/f/YOUR_FORM_ID"
-          method="POST">
-
-          <!-- FORM SETTINGS -->
-          <input
-            type="hidden"
-            name="_subject"
-            value="New DAILYFORM - EVERYDAY COMFORT Order">
-
-          <input
-            type="hidden"
-            name="Product"
-            value="EVERYDAY COMFORT">
-
-          <input
-            type="hidden"
-            name="Price per item"
-            value="299">
-
-
-          <!-- CUSTOMER NAME -->
-          <div class="df-form-group">
-
-            <label for="customer-name">
-              Full Name
-            </label>
-
-            <input
-              type="text"
-              id="customer-name"
-              name="Full Name"
-              placeholder="Enter your full name"
-              required>
-
-          </div>
-
-
-          <!-- EMAIL ADDRESS -->
-          <div class="df-form-group">
-
-            <label for="customer-email">
-              Email Address
-            </label>
-
-            <input
-              type="email"
-              id="customer-email"
-              name="_replyto"
-              placeholder="Enter your email address"
-              required>
-
-          </div>
-
-
-          <!-- CONTACT NUMBER -->
-          <div class="df-form-group">
-
-            <label for="customer-phone">
-              Contact Number
-            </label>
-
-            <input
-              type="tel"
-              id="customer-phone"
-              name="Contact Number"
-              placeholder="Enter your contact number"
-              required>
-
-          </div>
-
-
-          <!-- SHIRT SIZE -->
-          <div class="df-form-group">
-
-            <label for="order-size">
-              Size
-            </label>
-
-            <select
-              id="order-size"
-              name="Size"
-              required>
-
-              <option value="" disabled selected>
-                Select your size
-              </option>
-
-              <option value="Small">Small</option>
-              <option value="Medium">Medium</option>
-              <option value="Large">Large</option>
-              <option value="XL">Extra Large</option>
-
-            </select>
-
-          </div>
-
-
-          <!-- QUANTITY -->
-          <div class="df-form-group">
-
-            <label for="order-quantity">
-              Quantity
-            </label>
-
-            <input
-              type="number"
-              id="order-quantity"
-              name="Quantity"
-              value="1"
-              min="1"
-              max="99"
-              required>
-
-          </div>
-
-
-          <!-- DELIVERY ADDRESS -->
-          <div class="df-form-group">
-
-            <label for="delivery-address">
-              Complete Delivery Address
-            </label>
-
-            <textarea
-              id="delivery-address"
-              name="Delivery Address"
-              placeholder="House number, street, barangay, city, province"
-              rows="3"
-              required></textarea>
-
-          </div>
-
-
-          <!-- ADDITIONAL NOTES -->
-          <div class="df-form-group">
-
-            <label for="order-notes">
-              Additional Notes (Optional)
-            </label>
-
-            <textarea
-              id="order-notes"
-              name="Additional Notes"
-              placeholder="Other order instructions..."
-              rows="3"></textarea>
-
-          </div>
-
-
-          <!-- HIDDEN TOTAL AMOUNT -->
-          <input
-            type="hidden"
-            id="submitted-total"
-            name="Total Amount"
-            value="₱299">
-
-
-          <!-- FINAL TOTAL -->
-          <div class="df-final-total">
-
-            <span>Total Amount</span>
-
-            <strong id="final-total">₱299</strong>
-
-          </div>
-
-
-          <!-- SUBMIT BUTTON -->
-          <button
-            type="submit"
-            class="df-btn-order df-submit-order">
-
-            SUBMIT ORDER
-
-          </button>
-
-        </form>
-
-
-        <!-- BACK TO PRODUCT -->
-        <a href="#shop" class="df-back-link">
-          ← BACK TO PRODUCT
-        </a>
+        </aside>
 
       </div>
 
     </section>
-
   </main>
 
-
   <!-- FOOTER -->
-  <footer class="df-footer">
+  <footer class="footer">
 
-    <div class="df-footer-container">
+    <div class="footer-logo">DAILYFORM.</div>
 
-      <a href="privacy.html" class="df-btn-privacy">
-        PRIVACY
-      </a>
+    <p>EVERYDAY COMFORT. YOUR EVERYDAY STYLE.</p>
 
-      <p>
-        Everyday Comfort. Your Everyday Style.
-      </p>
+    <a href="privacy.html">PRIVACY POLICY</a>
 
-    </div>
+    <p>© 2026 DAILYFORM. ALL RIGHTS RESERVED.</p>
 
   </footer>
 
-
-  <!-- JAVASCRIPT -->
+  <!-- ORDER TOTAL SCRIPT -->
   <script>
+    const quantityInput = document.getElementById("quantity");
+    const summaryQuantity = document.getElementById("summary-quantity");
+    const summaryTotal = document.getElementById("summary-total");
 
-    // PRODUCT PRICE
-    const productPrice = 299;
+    const price = 299;
 
-
-    // HTML ELEMENTS
-    const quantityInput =
-      document.getElementById("quantity");
-
-    const orderQuantity =
-      document.getElementById("order-quantity");
-
-    const shirtSize =
-      document.getElementById("shirt-size");
-
-    const orderSize =
-      document.getElementById("order-size");
-
-
-    // FORMAT CURRENCY
-    function formatPrice(amount) {
-
-      return "₱" + amount.toLocaleString("en-PH");
-
-    }
-
-
-    // UPDATE ORDER SUMMARY AND TOTAL
     function updateOrderSummary() {
+      let quantity = parseInt(quantityInput.value);
 
-      let quantity = parseInt(quantityInput.value) || 1;
+      if (isNaN(quantity) || quantity < 1) {
+        quantity = 1;
+        quantityInput.value = 1;
+      }
 
-      quantity = Math.max(1, Math.min(99, quantity));
+      if (quantity > 99) {
+        quantity = 99;
+        quantityInput.value = 99;
+      }
 
-      quantityInput.value = quantity;
-      orderQuantity.value = quantity;
+      const total = quantity * price;
 
-      const total = productPrice * quantity;
+      summaryQuantity.textContent = quantity;
 
-
-      // Update quantity
-      document.getElementById("summary-quantity").textContent =
-        quantity;
-
-
-      // Update subtotal
-      document.getElementById("summary-total").textContent =
-        formatPrice(total);
-
-
-      // Update final total
-      document.getElementById("final-total").textContent =
-        formatPrice(total);
-
-
-      // Update submitted total
-      document.getElementById("submitted-total").value =
-        formatPrice(total);
-
+      summaryTotal.textContent = "₱" + total.toLocaleString("en-PH", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      });
     }
 
+    quantityInput.addEventListener("input", updateOrderSummary);
 
-    // INCREASE OR DECREASE QUANTITY
-    function changeQuantity(amount) {
-
-      let quantity = parseInt(quantityInput.value) || 1;
-
-      quantity += amount;
-
-      quantity = Math.max(1, Math.min(99, quantity));
-
-      quantityInput.value = quantity;
-
-      updateOrderSummary();
-
-    }
-
-
-    // UPDATE WHEN QUANTITY IS MANUALLY CHANGED
-    quantityInput.addEventListener("input", function() {
-
-      updateOrderSummary();
-
-    });
-
-
-    // SYNCHRONIZE ORDER FORM QUANTITY
-    orderQuantity.addEventListener("input", function() {
-
-      let quantity = parseInt(this.value) || 1;
-
-      quantity = Math.max(1, Math.min(99, quantity));
-
-      quantityInput.value = quantity;
-      this.value = quantity;
-
-      updateOrderSummary();
-
-    });
-
-
-    // SYNCHRONIZE PRODUCT SIZE TO ORDER FORM
-    shirtSize.addEventListener("change", function() {
-
-      orderSize.value = this.value;
-
-    });
-
-
-    // SYNCHRONIZE ORDER FORM SIZE TO PRODUCT
-    orderSize.addEventListener("change", function() {
-
-      shirtSize.value = this.value;
-
-    });
-
-
-    // INITIALIZE ORDER SUMMARY
     updateOrderSummary();
-
-
-    // VALIDATE PRODUCT SIZE BEFORE PROCEEDING
-    document.getElementById("order-now").addEventListener(
-      "click",
-      function(event) {
-
-        if (!shirtSize.value) {
-
-          event.preventDefault();
-
-          alert("Please choose your size before proceeding.");
-
-          shirtSize.focus();
-
-          return;
-
-        }
-
-        orderSize.value = shirtSize.value;
-
-        updateOrderSummary();
-
-      }
-    );
-
-
-    // VALIDATE ORDER BEFORE SUBMISSION
-    document.getElementById("customer-order-form").addEventListener(
-      "submit",
-      function(event) {
-
-        if (!orderSize.value) {
-
-          event.preventDefault();
-
-          alert("Please select your size.");
-
-          orderSize.focus();
-
-          return;
-
-        }
-
-        updateOrderSummary();
-
-      }
-    );
-
   </script>
 
 </body>
