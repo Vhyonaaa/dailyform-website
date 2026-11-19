@@ -7,31 +7,549 @@
 
   <title>DAILYFORM | Don't Be Late</title>
 
-  <!-- Google Fonts -->
+  <!-- GOOGLE FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&family=League+Spartan:wght@300;400;500;600;700&family=Tenor+Sans&display=swap" rel="stylesheet">
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
+  <!-- EMBEDDED CSS -->
+  <style>
+
+    :root {
+      --df-nav-bg: #DDC8BA;
+      --df-page-bg: #F8F5EE;
+      --df-brown: #68513C;
+      --df-text: #0D0A07;
+      --df-btn-bg: #F8F5EE;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background-color: var(--df-page-bg);
+      font-family: "Jost", sans-serif;
+      color: var(--df-text);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button, input, select, textarea {
+      font: inherit;
+    }
+
+    /* NAVBAR */
+
+    .df-navbar {
+      background-color: var(--df-nav-bg);
+      padding: 1rem 6%;
+    }
+
+    .df-nav-container {
+      max-width: 1300px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .df-logo {
+      height: 44px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: var(--df-brown);
+      line-height: 1;
+    }
+
+    .df-logo-main {
+      font-family: "Tenor Sans", sans-serif;
+      font-size: 2.3rem;
+    }
+
+    .df-logo-sub {
+      font-family: "League Spartan", sans-serif;
+      font-size: 0.55rem;
+      letter-spacing: 2px;
+    }
+
+    .df-nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .df-nav-links a {
+      font-family: "Tenor Sans", sans-serif;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--df-text);
+      transition: 0.2s;
+    }
+
+    .df-nav-links a:hover {
+      color: var(--df-brown);
+    }
+
+    /* PRODUCT PAGE */
+
+    .df-product-page {
+      max-width: 1300px;
+      margin: auto;
+      padding: 4rem 6%;
+    }
+
+    .df-page-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 3rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--df-nav-bg);
+    }
+
+    .df-page-heading h1 {
+      font-family: "Tenor Sans", sans-serif;
+      font-size: clamp(2rem, 5vw, 3.8rem);
+      font-weight: 400;
+      line-height: 1.1;
+      color: var(--df-brown);
+      margin: 0;
+    }
+
+    .df-cart {
+      font-size: 2rem;
+      transition: transform 0.2s;
+    }
+
+    .df-cart:hover {
+      transform: scale(1.1);
+    }
+
+    .df-product-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 4rem;
+    }
+
+    .df-product-image-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--df-nav-bg);
+      padding: 1.5rem;
+      border-radius: 18px;
+    }
+
+    .df-product-image {
+      display: block;
+      width: 100%;
+      max-width: 550px;
+      height: auto;
+      object-fit: contain;
+      border: 1px solid #222;
+      border-radius: 14px;
+      box-shadow: 8px 10px 0 rgba(0, 0, 0, 0.25);
+    }
+
+    .df-product-details {
+      padding: 1rem 0;
+    }
+
+    .df-product-name {
+      font-family: "Tenor Sans", sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400;
+      color: var(--df-brown);
+      margin: 0 0 1rem;
+    }
+
+    .df-product-description {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      max-width: 420px;
+      margin-bottom: 1.5rem;
+    }
+
+    .df-product-price {
+      font-family: "League Spartan", sans-serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--df-brown);
+      margin-bottom: 2rem;
+    }
+
+    .df-size-container {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .df-size-container label,
+    .df-form-group label {
+      font-family: "League Spartan", sans-serif;
+      font-weight: 600;
+    }
+
+    .df-size-container select,
+    .df-form-group select {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      background: #fff;
+      border: 1px solid var(--df-nav-bg);
+      border-radius: 8px;
+      color: var(--df-text);
+    }
+
+    .df-quantity-container {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 2rem;
+    }
+
+    .df-quantity-btn {
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--df-brown);
+      border-radius: 8px;
+      background: var(--df-btn-bg);
+      color: var(--df-brown);
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .df-quantity-btn:hover {
+      background: var(--df-brown);
+      color: #fff;
+    }
+
+    .df-quantity-container input {
+      width: 65px;
+      height: 42px;
+      text-align: center;
+      border: 1px solid var(--df-nav-bg);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    /* ORDER BUTTON */
+
+    .df-btn-order {
+      display: inline-block;
+      text-align: center;
+      background: var(--df-brown);
+      color: #fff;
+      border: 1px solid var(--df-brown);
+      border-radius: 10px;
+      padding: 0.9rem 2.5rem;
+      font-family: "League Spartan", sans-serif;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .df-btn-order:hover {
+      background: var(--df-btn-bg);
+      color: var(--df-brown);
+    }
+
+    .df-submit-order {
+      width: 100%;
+      margin-top: 1rem;
+    }
+
+    /* ORDER SECTION */
+
+    .df-order-section {
+      background-color: #EDE3D9;
+      padding: 5rem 6%;
+    }
+
+    .df-order-container {
+      max-width: 750px;
+      margin: auto;
+      background-color: var(--df-page-bg);
+      padding: 3rem;
+      border-radius: 16px;
+      box-shadow: 6px 8px 0 rgba(0, 0, 0, 0.12);
+    }
+
+    .df-eyebrow {
+      font-family: "Tenor Sans", sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      color: var(--df-brown);
+      margin-bottom: 0.8rem;
+    }
+
+    .df-order-container h2 {
+      font-family: "Tenor Sans", sans-serif;
+      font-size: clamp(1.7rem, 4vw, 2.5rem);
+      font-weight: 400;
+      color: var(--df-brown);
+      margin: 0 0 1rem;
+    }
+
+    .df-order-description {
+      line-height: 1.5;
+      margin-bottom: 2rem;
+    }
+
+    .df-order-summary {
+      background-color: #EDE3D9;
+      border: 1px solid var(--df-nav-bg);
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .df-summary-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.7rem 0;
+      border-bottom: 1px solid rgba(104, 81, 60, 0.2);
+    }
+
+    .df-summary-row:last-child {
+      border-bottom: none;
+    }
+
+    .df-summary-row strong {
+      text-align: right;
+    }
+
+    .df-order-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.3rem;
+    }
+
+    .df-form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .df-form-group input,
+    .df-form-group select,
+    .df-form-group textarea {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      border: 1px solid var(--df-nav-bg);
+      border-radius: 8px;
+      background-color: #fff;
+      color: var(--df-text);
+      outline: none;
+    }
+
+    .df-form-group input:focus,
+    .df-form-group select:focus,
+    .df-form-group textarea:focus {
+      border-color: var(--df-brown);
+    }
+
+    .df-form-group textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    .df-final-total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.3rem 0;
+      margin-top: 0.5rem;
+      border-top: 2px solid var(--df-nav-bg);
+      border-bottom: 2px solid var(--df-nav-bg);
+      font-family: "League Spartan", sans-serif;
+      font-size: 1.2rem;
+    }
+
+    .df-final-total strong {
+      font-size: 1.5rem;
+      color: var(--df-brown);
+    }
+
+    .df-back-link {
+      display: inline-block;
+      margin-top: 2rem;
+      font-family: "League Spartan", sans-serif;
+      font-weight: 600;
+      color: var(--df-brown);
+    }
+
+    .df-back-link:hover {
+      opacity: 0.65;
+    }
+
+    /* FOOTER */
+
+    .df-footer {
+      background-color: var(--df-brown);
+      color: #f3e9e0;
+      padding: 1.5rem 6%;
+    }
+
+    .df-footer-container {
+      max-width: 1300px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .df-btn-privacy {
+      background-color: #fff;
+      color: var(--df-text);
+      border-radius: 8px;
+      font-family: "League Spartan", serif;
+      text-transform: uppercase;
+      padding: 0.4rem 1rem;
+      transition: 0.2s;
+    }
+
+    .df-btn-privacy:hover {
+      background-color: var(--df-nav-bg);
+    }
+
+    .df-footer-text {
+      font-family: "Tenor Sans", sans-serif;
+      font-size: 1.25rem;
+      margin: 0;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 768px) {
+
+      .df-navbar {
+        padding: 1rem 5%;
+      }
+
+      .df-nav-links {
+        gap: 1rem;
+      }
+
+      .df-nav-links a {
+        font-size: 0.85rem;
+      }
+
+      .df-product-page {
+        padding: 3rem 5%;
+      }
+
+      .df-product-container {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .df-order-section {
+        padding: 3rem 5%;
+      }
+
+      .df-order-container {
+        padding: 2rem;
+      }
+
+      .df-footer-container {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 576px) {
+
+      .df-logo-main {
+        font-size: 2rem;
+      }
+
+      .df-logo-sub {
+        font-size: 0.5rem;
+      }
+
+      .df-nav-links {
+        gap: 0.7rem;
+      }
+
+      .df-nav-links a {
+        font-size: 0.7rem;
+        letter-spacing: 0.5px;
+      }
+
+      .df-page-heading {
+        align-items: flex-start;
+        margin-bottom: 2rem;
+      }
+
+      .df-page-heading h1 {
+        font-size: 1.8rem;
+      }
+
+      .df-cart {
+        font-size: 1.5rem;
+      }
+
+      .df-product-image-container {
+        padding: 1rem;
+      }
+
+      .df-order-container {
+        padding: 1.3rem;
+      }
+
+      .df-summary-row {
+        font-size: 0.9rem;
+      }
+
+      .df-final-total {
+        font-size: 1rem;
+      }
+
+      .df-final-total strong {
+        font-size: 1.25rem;
+      }
+    }
+
+  </style>
 </head>
 
 <body>
 
-  <!-- =========================
-       NAVIGATION BAR
-  ========================== -->
+  <!-- NAVIGATION BAR -->
 
   <header class="df-navbar">
     <div class="df-nav-container">
 
-      <a href="#shop" class="df-logo" aria-label="DAILYFORM Home">
+      <a href="index.html" class="df-logo" aria-label="DAILYFORM Home">
         <span class="df-logo-main">df</span>
         <span class="df-logo-sub">EVERYDAY STYLE</span>
       </a>
 
       <nav class="df-nav-links">
+        <a href="index.html">HOME</a>
         <a href="#shop">SHOP</a>
         <a href="#order">YOUR ORDER</a>
       </nav>
@@ -39,44 +557,33 @@
     </div>
   </header>
 
-
-  <!-- =========================
-       MAIN PRODUCT PAGE
-  ========================== -->
+  <!-- PRODUCT PAGE -->
 
   <main>
 
     <section class="df-product-page" id="shop">
 
       <div class="df-page-heading">
-
         <h1>
-          EVERYDAY COMFORT.<br>
-          YOUR EVERYDAY STYLE.
+          DON'T BE LATE.<br>
+          EVERYDAY COMFORT.
         </h1>
 
         <a href="#order" class="df-cart" aria-label="Go to your order">
           🛒
         </a>
-
       </div>
-
-
-      <!-- PRODUCT INFORMATION -->
 
       <div class="df-product-container">
 
         <!-- PRODUCT IMAGE -->
 
         <div class="df-product-image-container">
-
           <img
-            src="images/dont-be-late-shirt.jpg"
-            alt="DAILYFORM Don't Be Late shirt"
+            src="images/dont-be-late-shirt.png"
+            alt="DAILYFORM Don't Be Late graphic shirt"
             class="df-product-image">
-
         </div>
-
 
         <!-- PRODUCT DETAILS -->
 
@@ -87,17 +594,17 @@
           </h2>
 
           <p class="df-product-description">
-            Minimalist comfortable shirt perfect
-            for everyday style.
+            A statement graphic shirt designed for everyday
+            comfort, effortless style, and making every moment count.
           </p>
 
-          <p class="df-product-price">₱299</p>
-
+          <p class="df-product-price">
+            ₱299
+          </p>
 
           <!-- SIZE SELECTION -->
 
           <div class="df-size-container">
-
             <label for="shirt-size">Choose a size</label>
 
             <select id="shirt-size" name="size" required>
@@ -107,18 +614,16 @@
               <option value="Large">Large</option>
               <option value="XL">Extra Large</option>
             </select>
-
           </div>
 
-
-          <!-- QUANTITY SELECTION -->
+          <!-- QUANTITY -->
 
           <div class="df-quantity-container">
 
             <button
               type="button"
               class="df-quantity-btn"
-              id="decrease-quantity"
+              onclick="changeQuantity(-1)"
               aria-label="Decrease quantity">
               −
             </button>
@@ -126,6 +631,7 @@
             <input
               type="number"
               id="quantity"
+              name="quantity"
               value="1"
               min="1"
               max="99"
@@ -134,30 +640,22 @@
             <button
               type="button"
               class="df-quantity-btn"
-              id="increase-quantity"
+              onclick="changeQuantity(1)"
               aria-label="Increase quantity">
               +
             </button>
 
           </div>
 
-
-          <!-- ORDER NOW BUTTON -->
-
           <a href="#order" class="df-btn-order" id="order-now">
             ORDER NOW
           </a>
 
         </div>
-
       </div>
-
     </section>
 
-
-    <!-- =========================
-         ORDER FORM SECTION
-    ========================== -->
+    <!-- ORDER FORM -->
 
     <section class="df-order-section" id="order">
 
@@ -173,7 +671,6 @@
           Complete the information below to place your order.
         </p>
 
-
         <!-- ORDER SUMMARY -->
 
         <div class="df-order-summary">
@@ -184,13 +681,8 @@
           </div>
 
           <div class="df-summary-row">
-            <span>Price per shirt</span>
+            <span>Price</span>
             <strong>₱299</strong>
-          </div>
-
-          <div class="df-summary-row">
-            <span>Size</span>
-            <strong id="summary-size">Not selected</strong>
           </div>
 
           <div class="df-summary-row">
@@ -205,30 +697,17 @@
 
         </div>
 
-
         <!-- CUSTOMER ORDER FORM -->
-
-        <!-- REPLACE THE FORM ID WITH YOUR FORMSPREE ID -->
 
         <form
           class="df-order-form"
-          id="dailyform-order-form"
           action="https://formspree.io/f/YOUR_FORM_ID"
           method="POST">
-
-          <!-- EMAIL SETTINGS -->
 
           <input
             type="hidden"
             name="_subject"
-            value="New DAILYFORM Order - Don't Be Late">
-
-          <input
-            type="hidden"
-            name="_replyto"
-            id="reply-email">
-
-          <!-- PRODUCT INFORMATION -->
+            value="New DAILYFORM - DON'T BE LATE Order">
 
           <input
             type="hidden"
@@ -237,13 +716,12 @@
 
           <input
             type="hidden"
-            name="Price per Shirt"
+            name="Price per shirt"
             value="299">
 
-          <!-- CUSTOMER NAME -->
+          <!-- FULL NAME -->
 
           <div class="df-form-group">
-
             <label for="customer-name">Full Name</label>
 
             <input
@@ -251,33 +729,25 @@
               id="customer-name"
               name="Full Name"
               placeholder="Enter your full name"
-              autocomplete="name"
               required>
-
           </div>
 
-
-          <!-- EMAIL ADDRESS -->
+          <!-- EMAIL -->
 
           <div class="df-form-group">
-
             <label for="customer-email">Email Address</label>
 
             <input
               type="email"
               id="customer-email"
-              name="Email Address"
+              name="_replyto"
               placeholder="Enter your email address"
-              autocomplete="email"
               required>
-
           </div>
-
 
           <!-- CONTACT NUMBER -->
 
           <div class="df-form-group">
-
             <label for="customer-phone">Contact Number</label>
 
             <input
@@ -285,38 +755,26 @@
               id="customer-phone"
               name="Contact Number"
               placeholder="Enter your contact number"
-              autocomplete="tel"
               required>
-
           </div>
-
 
           <!-- SHIRT SIZE -->
 
           <div class="df-form-group">
-
             <label for="order-size">Shirt Size</label>
 
-            <select
-              id="order-size"
-              name="Shirt Size"
-              required>
-
+            <select id="order-size" name="Shirt Size" required>
               <option value="" disabled selected>Select your size</option>
               <option value="Small">Small</option>
               <option value="Medium">Medium</option>
               <option value="Large">Large</option>
               <option value="XL">Extra Large</option>
-
             </select>
-
           </div>
-
 
           <!-- QUANTITY -->
 
           <div class="df-form-group">
-
             <label for="order-quantity">Quantity</label>
 
             <input
@@ -327,14 +785,11 @@
               min="1"
               max="99"
               required>
-
           </div>
-
 
           <!-- DELIVERY ADDRESS -->
 
           <div class="df-form-group">
-
             <label for="delivery-address">
               Complete Delivery Address
             </label>
@@ -344,16 +799,12 @@
               name="Delivery Address"
               placeholder="House number, street, barangay, city, province"
               rows="3"
-              autocomplete="street-address"
               required></textarea>
-
           </div>
-
 
           <!-- ADDITIONAL NOTES -->
 
           <div class="df-form-group">
-
             <label for="order-notes">
               Additional Notes (Optional)
             </label>
@@ -363,9 +814,7 @@
               name="Additional Notes"
               placeholder="Other order instructions..."
               rows="3"></textarea>
-
           </div>
-
 
           <!-- TOTAL AMOUNT -->
 
@@ -373,45 +822,29 @@
             type="hidden"
             id="submitted-total"
             name="Total Amount"
-            value="299">
+            value="₱299">
 
           <div class="df-final-total">
-
             <span>Total Amount</span>
-
             <strong id="final-total">₱299</strong>
-
           </div>
 
-
-          <!-- SUBMIT ORDER -->
-
-          <button
-            type="submit"
-            class="df-btn-order df-submit-order"
-            id="submit-order">
-
+          <button type="submit" class="df-btn-order df-submit-order">
             SUBMIT ORDER
-
           </button>
 
         </form>
-
 
         <a href="#shop" class="df-back-link">
           ← BACK TO PRODUCT
         </a>
 
       </div>
-
     </section>
 
   </main>
 
-
-  <!-- =========================
-       FOOTER
-  ========================== -->
+  <!-- FOOTER -->
 
   <footer class="df-footer">
 
@@ -421,7 +854,7 @@
         PRIVACY
       </a>
 
-      <p>
+      <p class="df-footer-text">
         Everyday Comfort. Your Everyday Style.
       </p>
 
@@ -429,16 +862,15 @@
 
   </footer>
 
-
-  <!-- =========================
-       JAVASCRIPT
-  ========================== -->
+  <!-- JAVASCRIPT -->
 
   <script>
 
-    // PRODUCT SETTINGS
+    // PRODUCT PRICE
 
     const productPrice = 299;
+
+    // GET HTML ELEMENTS
 
     const quantityInput = document.getElementById("quantity");
     const orderQuantity = document.getElementById("order-quantity");
@@ -446,17 +878,8 @@
     const shirtSize = document.getElementById("shirt-size");
     const orderSize = document.getElementById("order-size");
 
-    const orderForm = document.getElementById("dailyform-order-form");
 
-
-    // FORMAT PRICE
-
-    function formatPrice(amount) {
-      return "₱" + amount.toLocaleString("en-PH");
-    }
-
-
-    // UPDATE ORDER SUMMARY
+    // UPDATE QUANTITY AND TOTAL
 
     function updateOrderSummary() {
 
@@ -469,187 +892,64 @@
 
       const total = productPrice * quantity;
 
-      // Update quantity
-
       document.getElementById("summary-quantity").textContent =
         quantity;
 
-      // Update size
-
-      document.getElementById("summary-size").textContent =
-        shirtSize.value || "Not selected";
-
-      // Update subtotal
-
       document.getElementById("summary-total").textContent =
-        formatPrice(total);
-
-      // Update final total
+        "₱" + total.toLocaleString("en-PH");
 
       document.getElementById("final-total").textContent =
-        formatPrice(total);
-
-      // Update hidden submitted total
+        "₱" + total.toLocaleString("en-PH");
 
       document.getElementById("submitted-total").value =
-        formatPrice(total);
-
+        "₱" + total.toLocaleString("en-PH");
     }
 
 
-    // INCREASE QUANTITY
+    // INCREASE OR DECREASE QUANTITY
 
-    document.getElementById("increase-quantity")
-      .addEventListener("click", function() {
+    function changeQuantity(amount) {
 
-        let quantity = parseInt(quantityInput.value) || 1;
+      let quantity = parseInt(quantityInput.value) || 1;
 
-        if (quantity < 99) {
-          quantityInput.value = quantity + 1;
-        }
+      quantity += amount;
 
-        updateOrderSummary();
+      quantity = Math.max(1, Math.min(99, quantity));
 
-      });
+      quantityInput.value = quantity;
 
-
-    // DECREASE QUANTITY
-
-    document.getElementById("decrease-quantity")
-      .addEventListener("click", function() {
-
-        let quantity = parseInt(quantityInput.value) || 1;
-
-        if (quantity > 1) {
-          quantityInput.value = quantity - 1;
-        }
-
-        updateOrderSummary();
-
-      });
+      updateOrderSummary();
+    }
 
 
     // MANUAL QUANTITY INPUT
 
-    quantityInput.addEventListener("input", function() {
-
-      updateOrderSummary();
-
-    });
-
-    quantityInput.addEventListener("change", function() {
-
-      updateOrderSummary();
-
-    });
+    quantityInput.addEventListener("change", updateOrderSummary);
 
 
-    // ORDER FORM QUANTITY INPUT
+    // SYNCHRONIZE ORDER QUANTITY
 
     orderQuantity.addEventListener("input", function() {
 
-      quantityInput.value = this.value;
+      let quantity = parseInt(this.value) || 1;
+
+      quantity = Math.max(1, Math.min(99, quantity));
+
+      quantityInput.value = quantity;
+      orderQuantity.value = quantity;
 
       updateOrderSummary();
-
-    });
-
-    orderQuantity.addEventListener("change", function() {
-
-      updateOrderSummary();
-
     });
 
 
     // SYNCHRONIZE SHIRT SIZE
 
     shirtSize.addEventListener("change", function() {
-
       orderSize.value = this.value;
-
-      updateOrderSummary();
-
     });
 
     orderSize.addEventListener("change", function() {
-
       shirtSize.value = this.value;
-
-      updateOrderSummary();
-
-    });
-
-
-    // ORDER NOW BUTTON VALIDATION
-
-    document.getElementById("order-now")
-      .addEventListener("click", function(event) {
-
-        if (!shirtSize.value) {
-
-          event.preventDefault();
-
-          alert("Please select your shirt size before proceeding.");
-
-          shirtSize.focus();
-
-          return;
-
-        }
-
-        orderSize.value = shirtSize.value;
-
-        updateOrderSummary();
-
-      });
-
-
-    // VALIDATE AND PREPARE FORM SUBMISSION
-
-    orderForm.addEventListener("submit", function(event) {
-
-      // Check shirt size
-
-      if (!orderSize.value) {
-
-        event.preventDefault();
-
-        alert("Please select a shirt size.");
-
-        orderSize.focus();
-
-        return;
-
-      }
-
-      // Check quantity
-
-      const quantity = parseInt(orderQuantity.value);
-
-      if (!Number.isInteger(quantity) || quantity < 1 || quantity > 99) {
-
-        event.preventDefault();
-
-        alert("Please enter a valid quantity between 1 and 99.");
-
-        orderQuantity.focus();
-
-        return;
-
-      }
-
-      // Synchronize final order details
-
-      shirtSize.value = orderSize.value;
-      quantityInput.value = quantity;
-
-      updateOrderSummary();
-
-      // Include customer email for reply
-
-      document.getElementById("reply-email").value =
-        document.getElementById("customer-email").value;
-
     });
 
 
@@ -657,7 +957,48 @@
 
     updateOrderSummary();
 
-  </script>
-</body>
 
+    // VALIDATE SIZE BEFORE ORDERING
+
+    document.getElementById("order-now").addEventListener("click", function(event) {
+
+      if (!shirtSize.value) {
+
+        event.preventDefault();
+
+        alert("Please choose your shirt size before proceeding.");
+
+        shirtSize.focus();
+
+        return;
+      }
+
+      orderSize.value = shirtSize.value;
+
+      updateOrderSummary();
+    });
+
+
+    // VALIDATE BEFORE FORM SUBMISSION
+
+    document.querySelector(".df-order-form").addEventListener("submit", function(event) {
+
+      if (!orderSize.value) {
+
+        event.preventDefault();
+
+        alert("Please select your shirt size.");
+
+        orderSize.focus();
+
+        return;
+      }
+
+      updateOrderSummary();
+    });
+
+  </script>
+
+</body>
 </html>
+
