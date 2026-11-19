@@ -48,7 +48,7 @@
     }
 
    /* HEADER */
-.df-header {
+  .df-header {
     width: 100%;
     height: 63px;
     background-color: #DDC8BA;
@@ -58,30 +58,30 @@
     align-items: center;
     position: relative;
     z-index: 1000;
-}
+  }
 
-/* LOGO */
-.df-header-logo {
+  /* LOGO */
+  .df-header-logo {
     display: flex;
     align-items: center;
-}
+  }
 
-.df-header-logo img {
+  .df-header-logo img {
     width: 44px;
     height: 44px;
     object-fit: contain;
     border-radius: 8px;
-}
+  }
 
 /* NAVIGATION */
-.df-header-nav {
+  .df-header-nav {
     display: flex;
     align-items: center;
     gap: 35px;
     height: 100%;
-}
+  }
 
-.df-header-link {
+  .df-header-link {
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -93,25 +93,25 @@
     text-transform: uppercase;
     white-space: nowrap;
     transition: color 0.2s;
-}
+  }
 
-.df-header-link:hover {
+  .df-header-link:hover {
     color: #68513C;
-}
+  }
 
 /* SHOP DROPDOWN */
-.df-dropdown {
+  .df-dropdown {
     position: relative;
     height: 100%;
     display: flex;
     align-items: center;
-}
+  }
 
-.arrow {
+  .arrow {
     font-size: 16px;
-}
+  }
 
-.df-dropdown-menu {
+  .df-dropdown-menu {
     display: none;
     position: absolute;
     top: 100%;
@@ -123,9 +123,9 @@
     padding: 6px 0;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
     z-index: 1001;
-}
+  }
 
-.df-dropdown-menu a {
+  .df-dropdown-menu a {
     display: block;
     padding: 9px 16px;
     font-family: "Jost", sans-serif;
@@ -133,19 +133,19 @@
     color: #0D0A07;
     text-decoration: none;
     white-space: nowrap;
-}
+  }
 
-.df-dropdown-menu a:hover {
+  .df-dropdown-menu a:hover {
     background-color: #F8F5EE;
-}
+  }
 
-/* SHOW DROPDOWN ON HOVER OR KEYBOARD FOCUS */
-.df-dropdown:hover .df-dropdown-menu,
-.df-dropdown:focus-within .df-dropdown-menu {
+  /* SHOW DROPDOWN ON HOVER OR KEYBOARD FOCUS */
+  .df-dropdown:hover .df-dropdown-menu,
+  .df-dropdown:focus-within .df-dropdown-menu {
     display: block;
-}
+  }
 
-/* RESPONSIVE */
+  /* RESPONSIVE */
 @media (max-width: 576px) {
     .df-header {
         padding: 0 12px;
