@@ -207,127 +207,113 @@
 
         <!-- Customer Order Form -->
 
-        <form
-          class="df-order-form"
-          action="mailto:your-email@example.com"
-          method="post"
-          enctype="text/plain">
 
-          <div class="df-form-group">
+<form
+  class="df-order-form"
+  action="https://formspree.io/f/YOUR_FORM_ID"
+  method="POST">
 
-            <label for="customer-name">Full Name</label>
+  <input type="hidden" name="Product" value="DON'T BE LATE">
+  <input type="hidden" name="Price" value="299">
 
-            <input
-              type="text"
-              id="customer-name"
-              name="Customer Name"
-              placeholder="Enter your full name"
-              required>
+  <!-- Customer Name -->
+  <div class="df-form-group">
+    <label for="customer-name">Full Name</label>
+    <input
+      type="text"
+      id="customer-name"
+      name="Full Name"
+      placeholder="Enter your full name"
+      required>
+  </div>
 
-          </div>
+  <!-- Email -->
+  <div class="df-form-group">
+    <label for="customer-email">Email Address</label>
+    <input
+      type="email"
+      id="customer-email"
+      name="Email"
+      placeholder="Enter your email address"
+      required>
+  </div>
 
+  <!-- Contact Number -->
+  <div class="df-form-group">
+    <label for="customer-phone">Contact Number</label>
+    <input
+      type="tel"
+      id="customer-phone"
+      name="Contact Number"
+      placeholder="Enter your contact number"
+      required>
+  </div>
 
-          <div class="df-form-group">
+  <!-- Shirt Size -->
+  <div class="df-form-group">
+    <label for="order-size">Shirt Size</label>
+    <select id="order-size" name="Shirt Size" required>
+      <option value="" disabled selected>Select your size</option>
+      <option value="Small">Small</option>
+      <option value="Medium">Medium</option>
+      <option value="Large">Large</option>
+      <option value="XL">Extra Large</option>
+    </select>
+  </div>
 
-            <label for="customer-email">Email Address</label>
+  <!-- Quantity -->
+  <div class="df-form-group">
+    <label for="order-quantity">Quantity</label>
+    <input
+      type="number"
+      id="order-quantity"
+      name="Quantity"
+      value="1"
+      min="1"
+      max="99"
+      required>
+  </div>
 
-            <input
-              type="email"
-              id="customer-email"
-              name="Email Address"
-              placeholder="Enter your email address"
-              required>
+  <!-- Delivery Address -->
+  <div class="df-form-group">
+    <label for="delivery-address">Complete Delivery Address</label>
+    <textarea
+      id="delivery-address"
+      name="Delivery Address"
+      placeholder="House number, street, barangay, city, province"
+      rows="3"
+      required></textarea>
+  </div>
 
-          </div>
+  <!-- Additional Notes -->
+  <div class="df-form-group">
+    <label for="order-notes">Additional Notes (Optional)</label>
+    <textarea
+      id="order-notes"
+      name="Additional Notes"
+      placeholder="Other order instructions..."
+      rows="3"></textarea>
+  </div>
 
+  <!-- Total -->
+  <input
+    type="hidden"
+    id="submitted-total"
+    name="Total Amount"
+    value="299">
 
-          <div class="df-form-group">
+  <div class="df-final-total">
+    <span>Total Amount</span>
+    <strong id="final-total">₱299</strong>
+  </div>
 
-            <label for="customer-phone">Contact Number</label>
+  <!-- Submit -->
+  <button type="submit" class="df-btn-order df-submit-order">
+    SUBMIT ORDER
+  </button>
 
-            <input
-              type="tel"
-              id="customer-phone"
-              name="Contact Number"
-              placeholder="Enter your contact number"
-              required>
+</form>
 
-          </div>
-
-
-          <div class="df-form-group">
-
-            <label for="order-size">Shirt Size</label>
-
-            <select id="order-size" name="Shirt Size" required>
-              <option value="" disabled selected>Select your size</option>
-              <option value="Small">Small</option>
-              <option value="Medium">Medium</option>
-              <option value="Large">Large</option>
-              <option value="XL">Extra Large</option>
-            </select>
-
-          </div>
-
-
-          <div class="df-form-group">
-
-            <label for="order-quantity">Quantity</label>
-
-            <input
-              type="number"
-              id="order-quantity"
-              name="Quantity"
-              value="1"
-              min="1"
-              max="99"
-              required>
-
-          </div>
-
-
-          <div class="df-form-group">
-
-            <label for="delivery-address">Complete Delivery Address</label>
-
-            <textarea
-              id="delivery-address"
-              name="Delivery Address"
-              placeholder="House number, street, barangay, city, province"
-              rows="3"
-              required></textarea>
-
-          </div>
-
-
-          <div class="df-form-group">
-
-            <label for="order-notes">Additional Notes (Optional)</label>
-
-            <textarea
-              id="order-notes"
-              name="Additional Notes"
-              placeholder="Other order instructions..."
-              rows="3"></textarea>
-
-          </div>
-
-
-          <!-- Total Price -->
-
-          <div class="df-final-total">
-            <span>Total Amount</span>
-            <strong id="final-total">₱299</strong>
-          </div>
-
-
-          <!-- Submit Order -->
-
-          <button type="submit" class="df-btn-order df-submit-order">
-            SUBMIT ORDER
-          </button>
-
-        </form>
 
 
         <a href="#shop" class="df-back-link">
