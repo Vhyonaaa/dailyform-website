@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,16 +13,13 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&family=League+Spartan:wght@300;400;500;600;700&family=Tenor+Sans&display=swap" rel="stylesheet">
 
-  <!-- Stylesheet -->
+  <!-- External CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <!-- =========================
-       NAVIGATION BAR
-  ========================== -->
-
+  <!-- NAVIGATION BAR -->
   <header class="df-navbar">
     <div class="df-nav-container">
 
@@ -41,15 +37,10 @@
   </header>
 
 
-  <!-- =========================
-       PRODUCT PAGE
-  ========================== -->
-
+  <!-- PRODUCT PAGE -->
   <main>
 
     <section class="df-product-page" id="shop">
-
-      <!-- Product Page Heading -->
 
       <div class="df-page-heading">
 
@@ -65,12 +56,10 @@
       </div>
 
 
-      <!-- Product Information -->
-
+      <!-- PRODUCT INFORMATION -->
       <div class="df-product-container">
 
-        <!-- Product Image -->
-
+        <!-- PRODUCT IMAGE -->
         <div class="df-product-image-container">
 
           <img
@@ -81,8 +70,7 @@
         </div>
 
 
-        <!-- Product Details -->
-
+        <!-- PRODUCT DETAILS -->
         <div class="df-product-details">
 
           <h2 class="df-product-name">
@@ -97,8 +85,7 @@
           <p class="df-product-price">₱299</p>
 
 
-          <!-- Size Selection -->
-
+          <!-- SIZE SELECTION -->
           <div class="df-size-container">
 
             <label for="shirt-size">Choose a size</label>
@@ -114,8 +101,7 @@
           </div>
 
 
-          <!-- Quantity Selection -->
-
+          <!-- QUANTITY SELECTION -->
           <div class="df-quantity-container">
 
             <button
@@ -146,8 +132,7 @@
           </div>
 
 
-          <!-- Order Now -->
-
+          <!-- ORDER NOW BUTTON -->
           <a href="#order" class="df-btn-order" id="order-now">
             ORDER NOW
           </a>
@@ -159,10 +144,7 @@
     </section>
 
 
-    <!-- =========================
-         ORDER FORM
-    ========================== -->
-
+    <!-- ORDER FORM -->
     <section class="df-order-section" id="order">
 
       <div class="df-order-container">
@@ -174,12 +156,11 @@
         <h2>YOUR DO GOOD WORK SHIRT</h2>
 
         <p class="df-order-description">
-          Complete the information below to place your order inquiry.
+          Complete the information below to place your order.
         </p>
 
 
-        <!-- Order Summary -->
-
+        <!-- ORDER SUMMARY -->
         <div class="df-order-summary">
 
           <div class="df-summary-row">
@@ -205,115 +186,161 @@
         </div>
 
 
-        <!-- Customer Order Form -->
+        <!-- CUSTOMER ORDER FORM -->
+        <form
+          class="df-order-form"
+          action="https://formspree.io/f/YOUR_FORM_ID"
+          method="POST">
+
+          <!-- FORM SETTINGS -->
+          <input
+            type="hidden"
+            name="_subject"
+            value="New DAILYFORM - DO GOOD WORK Order">
+
+          <input
+            type="hidden"
+            name="Product"
+            value="DO GOOD WORK">
+
+          <input
+            type="hidden"
+            name="Price per shirt"
+            value="299">
 
 
-<form
-  class="df-order-form"
-  action="https://formspree.io/f/YOUR_FORM_ID"
-  method="POST">
+          <!-- CUSTOMER NAME -->
+          <div class="df-form-group">
 
-  <input type="hidden" name="Product" value="DON'T BE LATE">
-  <input type="hidden" name="Price" value="299">
+            <label for="customer-name">Full Name</label>
 
-  <!-- Customer Name -->
-  <div class="df-form-group">
-    <label for="customer-name">Full Name</label>
-    <input
-      type="text"
-      id="customer-name"
-      name="Full Name"
-      placeholder="Enter your full name"
-      required>
-  </div>
+            <input
+              type="text"
+              id="customer-name"
+              name="Full Name"
+              placeholder="Enter your full name"
+              required>
 
-  <!-- Email -->
-  <div class="df-form-group">
-    <label for="customer-email">Email Address</label>
-    <input
-      type="email"
-      id="customer-email"
-      name="Email"
-      placeholder="Enter your email address"
-      required>
-  </div>
+          </div>
 
-  <!-- Contact Number -->
-  <div class="df-form-group">
-    <label for="customer-phone">Contact Number</label>
-    <input
-      type="tel"
-      id="customer-phone"
-      name="Contact Number"
-      placeholder="Enter your contact number"
-      required>
-  </div>
 
-  <!-- Shirt Size -->
-  <div class="df-form-group">
-    <label for="order-size">Shirt Size</label>
-    <select id="order-size" name="Shirt Size" required>
-      <option value="" disabled selected>Select your size</option>
-      <option value="Small">Small</option>
-      <option value="Medium">Medium</option>
-      <option value="Large">Large</option>
-      <option value="XL">Extra Large</option>
-    </select>
-  </div>
+          <!-- EMAIL ADDRESS -->
+          <div class="df-form-group">
 
-  <!-- Quantity -->
-  <div class="df-form-group">
-    <label for="order-quantity">Quantity</label>
-    <input
-      type="number"
-      id="order-quantity"
-      name="Quantity"
-      value="1"
-      min="1"
-      max="99"
-      required>
-  </div>
+            <label for="customer-email">Email Address</label>
 
-  <!-- Delivery Address -->
-  <div class="df-form-group">
-    <label for="delivery-address">Complete Delivery Address</label>
-    <textarea
-      id="delivery-address"
-      name="Delivery Address"
-      placeholder="House number, street, barangay, city, province"
-      rows="3"
-      required></textarea>
-  </div>
+            <input
+              type="email"
+              id="customer-email"
+              name="_replyto"
+              placeholder="Enter your email address"
+              required>
 
-  <!-- Additional Notes -->
-  <div class="df-form-group">
-    <label for="order-notes">Additional Notes (Optional)</label>
-    <textarea
-      id="order-notes"
-      name="Additional Notes"
-      placeholder="Other order instructions..."
-      rows="3"></textarea>
-  </div>
+          </div>
 
-  <!-- Total -->
-  <input
-    type="hidden"
-    id="submitted-total"
-    name="Total Amount"
-    value="299">
 
-  <div class="df-final-total">
-    <span>Total Amount</span>
-    <strong id="final-total">₱299</strong>
-  </div>
+          <!-- CONTACT NUMBER -->
+          <div class="df-form-group">
 
-  <!-- Submit -->
-  <button type="submit" class="df-btn-order df-submit-order">
-    SUBMIT ORDER
-  </button>
+            <label for="customer-phone">Contact Number</label>
 
-</form>
+            <input
+              type="tel"
+              id="customer-phone"
+              name="Contact Number"
+              placeholder="Enter your contact number"
+              required>
 
+          </div>
+
+
+          <!-- SHIRT SIZE -->
+          <div class="df-form-group">
+
+            <label for="order-size">Shirt Size</label>
+
+            <select id="order-size" name="Shirt Size" required>
+
+              <option value="" disabled selected>Select your size</option>
+              <option value="Small">Small</option>
+              <option value="Medium">Medium</option>
+              <option value="Large">Large</option>
+              <option value="XL">Extra Large</option>
+
+            </select>
+
+          </div>
+
+
+          <!-- QUANTITY -->
+          <div class="df-form-group">
+
+            <label for="order-quantity">Quantity</label>
+
+            <input
+              type="number"
+              id="order-quantity"
+              name="Quantity"
+              value="1"
+              min="1"
+              max="99"
+              required>
+
+          </div>
+
+
+          <!-- DELIVERY ADDRESS -->
+          <div class="df-form-group">
+
+            <label for="delivery-address">Complete Delivery Address</label>
+
+            <textarea
+              id="delivery-address"
+              name="Delivery Address"
+              placeholder="House number, street, barangay, city, province"
+              rows="3"
+              required></textarea>
+
+          </div>
+
+
+          <!-- ADDITIONAL NOTES -->
+          <div class="df-form-group">
+
+            <label for="order-notes">Additional Notes (Optional)</label>
+
+            <textarea
+              id="order-notes"
+              name="Additional Notes"
+              placeholder="Other order instructions..."
+              rows="3"></textarea>
+
+          </div>
+
+
+          <!-- CALCULATED TOTAL -->
+          <input
+            type="hidden"
+            id="submitted-total"
+            name="Total Amount"
+            value="₱299">
+
+
+          <div class="df-final-total">
+
+            <span>Total Amount</span>
+
+            <strong id="final-total">₱299</strong>
+
+          </div>
+
+
+          <!-- SUBMIT ORDER -->
+          <button type="submit" class="df-btn-order df-submit-order">
+            SUBMIT ORDER
+          </button>
+
+        </form>
 
 
         <a href="#shop" class="df-back-link">
@@ -327,10 +354,7 @@
   </main>
 
 
-  <!-- =========================
-       FOOTER
-  ========================== -->
-
+  <!-- FOOTER -->
   <footer class="df-footer">
 
     <div class="df-footer-container">
@@ -348,14 +372,13 @@
   </footer>
 
 
-  <!-- =========================
-       JAVASCRIPT
-  ========================== -->
-
+  <!-- JAVASCRIPT -->
   <script>
 
+    // PRODUCT PRICE
     const productPrice = 299;
 
+    // GET HTML ELEMENTS
     const quantityInput = document.getElementById("quantity");
     const orderQuantity = document.getElementById("order-quantity");
 
@@ -363,8 +386,7 @@
     const orderSize = document.getElementById("order-size");
 
 
-    // Update quantity and total price
-
+    // UPDATE QUANTITY AND TOTAL PRICE
     function updateOrderSummary() {
 
       let quantity = parseInt(quantityInput.value) || 1;
@@ -376,18 +398,24 @@
 
       const total = productPrice * quantity;
 
+      // Update order summary
       document.getElementById("summary-quantity").textContent = quantity;
 
       document.getElementById("summary-total").textContent =
         "₱" + total.toLocaleString("en-PH");
 
+      // Update final total
       document.getElementById("final-total").textContent =
         "₱" + total.toLocaleString("en-PH");
+
+      // Update hidden form field
+      document.getElementById("submitted-total").value =
+        "₱" + total.toLocaleString("en-PH");
+
     }
 
 
-    // Increase or decrease quantity
-
+    // INCREASE OR DECREASE QUANTITY
     function changeQuantity(amount) {
 
       let quantity = parseInt(quantityInput.value) || 1;
@@ -399,13 +427,15 @@
       quantityInput.value = quantity;
 
       updateOrderSummary();
+
     }
 
 
-    // Manual quantity input
-
+    // MANUAL QUANTITY INPUT
     quantityInput.addEventListener("change", updateOrderSummary);
 
+
+    // SYNCHRONIZE ORDER FORM QUANTITY
     orderQuantity.addEventListener("input", function() {
 
       let quantity = parseInt(this.value) || 1;
@@ -420,24 +450,26 @@
     });
 
 
-    // Synchronize shirt size
-
+    // SYNCHRONIZE SHIRT SIZE
     shirtSize.addEventListener("change", function() {
+
       orderSize.value = this.value;
+
     });
+
 
     orderSize.addEventListener("change", function() {
+
       shirtSize.value = this.value;
+
     });
 
 
-    // Initialize order summary
-
+    // INITIALIZE ORDER SUMMARY
     updateOrderSummary();
 
 
-    // Validate size before proceeding to order section
-
+    // VALIDATE SIZE BEFORE ORDERING
     document.getElementById("order-now").addEventListener("click", function(event) {
 
       if (!shirtSize.value) {
@@ -449,14 +481,20 @@
         shirtSize.focus();
 
         return;
+
       }
 
       orderSize.value = shirtSize.value;
+
       updateOrderSummary();
 
     });
 
   </script>
+
+</body>
+</html>
+
 
 </body>
 </html>
