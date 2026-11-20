@@ -483,10 +483,19 @@
       const subject = document.getElementById("subject").value.trim();
       const message = document.getElementById("message").value.trim();
 
-      const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
-      const mailto = `mailto:hello@dailyform.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      const recipient = "hello@examplewebsite142.com";
 
-      window.location.href = mailto;
+      const body = 
+            "Name: + name + "\n" +
+            "Email: " + email + "\n\n" +
+            "Message: \n" + message;
+      
+      const mailtoLink = 
+        "mailto:" + recipient +
+        "?subject=" + encodeURIComponent(subject) +
+        "&body=" + encodeURIComponent(body);
+      
+      window.location.href = mailtoLink;
     });
   </script>
 </body>
