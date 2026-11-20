@@ -375,7 +375,7 @@
               <h2 class="contact-form-title">Send us a message!</h2>
               <p class="contact-form-subtitle">We'll get back to you as soon as possible.</p>
 
-              <form id="contactForm" action="mailto:hello@examplewebsite142.com" method="post">
+              <form id="contactForm">
                 <div class="row g-3 mb-3">
                   <div class="col-sm-6">
                     <label for="fullName" class="visually-hidden">Full Name</label>
@@ -480,6 +480,8 @@
 
       const contactForm = document.getElementbyID("contactForm");
 
+      if (!contactForm) return;
+
       contactForm.addEventListener("submit", function (event) {
         event.preventDefault();
 
@@ -488,6 +490,8 @@
         const subject = document.getElementById("subject").value.trim();
         const message = document.getElementById("message").value.trim();
 
+        const recipient = "hello@examplewebsite142.com";
+        
         const body = 
             "Name: + name + "\n" +
             "Email: " + email + "\n\n" +
