@@ -780,7 +780,7 @@
 
         <!-- CUSTOMER ORDER FORM -->
 
-<form class="df-order-form" id="order-form">
+        <form class="df-order-form" id="order-form">
 
           <!-- FULL NAME -->
 
@@ -803,7 +803,7 @@
             <input
               type="email"
               id="customer-email"
-              name="_replyto"
+              name="Email Address"
               placeholder="Enter your email address"
               required>
           </div>
@@ -929,9 +929,11 @@
 
   <script>
 
-    // PRODUCT PRICE
+    // PRODUCT DETAILS
 
     const productPrice = 299;
+    const productName = "DON'T BE LATE";
+    const recipient = "orders@examplewebsite142.com";
 
     // GET HTML ELEMENTS
 
@@ -966,6 +968,7 @@
 
       document.getElementById("submitted-total").value =
         "₱" + total.toLocaleString("en-PH");
+
     }
 
 
@@ -982,6 +985,7 @@
       quantityInput.value = quantity;
 
       updateOrderSummary();
+
     }
 
 
@@ -1002,6 +1006,7 @@
       orderQuantity.value = quantity;
 
       updateOrderSummary();
+
     });
 
 
@@ -1034,34 +1039,74 @@
         shirtSize.focus();
 
         return;
+
       }
 
       orderSize.value = shirtSize.value;
 
       updateOrderSummary();
+
     });
 
 
-    // VALIDATE BEFORE FORM SUBMISSION
+    // VALIDATE AND OPEN EMAIL APPLICATION
 
-    document.querySelector(".df-order-form").addEventListener("submit", function(event) {
+    document.getElementById("order-form").addEventListener("submit", function(event) {
+
+      event.preventDefault();
 
       if (!orderSize.value) {
-
-        event.preventDefault();
 
         alert("Please select your shirt size.");
 
         orderSize.focus();
 
         return;
+
       }
 
       updateOrderSummary();
+
+      const customerName = document.getElementById("customer-name").value.trim();
+      const customerEmail = document.getElementById("customer-email").value.trim();
+      const customerPhone = document.getElementById("customer-phone").value.trim();
+      const deliveryAddress = document.getElementById("delivery-address").value.trim();
+      const additionalNotes = document.getElementById("order-notes").value.trim();
+
+      const size = orderSize.value;
+      const quantity = parseInt(orderQuantity.value) || 1;
+      const total = productPrice * quantity;
+
+      const subject = "DAILYFORM - " + productName + " ORDER";
+
+      const body =
+        "Hello DAILYFORM!\n\n" +
+        "I would like to place an order.\n\n" +
+        "CUSTOMER INFORMATION\n" +
+        "Full Name: " + customerName + "\n" +
+        "Email Address: " + customerEmail + "\n" +
+        "Contact Number: " + customerPhone + "\n" +
+        "Delivery Address: " + deliveryAddress + "\n\n" +
+        "ORDER DETAILS\n" +
+        "Product: " + productName + "\n" +
+        "Price per shirt: ₱" + productPrice + "\n" +
+        "Shirt Size: " + size + "\n" +
+        "Quantity: " + quantity + "\n" +
+        "Total Amount: ₱" + total.toLocaleString("en-PH") + "\n\n" +
+        "ADDITIONAL NOTES\n" +
+        (additionalNotes || "None") + "\n\n" +
+        "Thank you!";
+
+      const mailtoLink =
+        "mailto:" + recipient +
+        "?subject=" + encodeURIComponent(subject) +
+        "&body=" + encodeURIComponent(body);
+
+      window.location.href = mailtoLink;
+
     });
 
   </script>
 
 </body>
 </html>
-
