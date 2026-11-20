@@ -375,7 +375,7 @@
               <h2 class="contact-form-title">Send us a message!</h2>
               <p class="contact-form-subtitle">We'll get back to you as soon as possible.</p>
 
-              <form id="contactForm">
+              <form id="contactForm" action="mailto:hello@examplewebsite142.com" method="post">
                 <div class="row g-3 mb-3">
                   <div class="col-sm-6">
                     <label for="fullName" class="visually-hidden">Full Name</label>
@@ -446,10 +446,6 @@
 
         </div>
       </div>
-
-      <a href="mailto:hello@examplewebsite142.com?subject=DAILYFORM%20Contact">
-    TEST EMAIL LINK
-</a>
       
     </section>
   </main>
@@ -480,27 +476,32 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/main.js"></script>
   <script>
-    document.getElementById("contactForm").addEventListener("submit", function (event) {
-      event.preventDefault();
+    document.addEventListener("DOMContentLoaded", function () {
 
-      const name = document.getElementById("fullName").value.trim();
-      const email = document.getElementById("emailAddress").value.trim();
-      const subject = document.getElementById("subject").value.trim();
-      const message = document.getElementById("message").value.trim();
+      const contactForm = document.getElementbyID("contactForm");
 
-      const recipient = "hello@examplewebsite142.com";
+      contactForm.addEventListener("submit", function (event) {
+        event.preventDefault();
 
-      const body = 
+        const name = document.getElementById("fullName").value.trim();
+        const email = document.getElementById("emailAddress").value.trim();
+        const subject = document.getElementById("subject").value.trim();
+        const message = document.getElementById("message").value.trim();
+
+        const body = 
             "Name: + name + "\n" +
             "Email: " + email + "\n\n" +
             "Message: \n" + message;
       
-      const mailtoLink = 
-        "mailto:" + recipient +
-        "?subject=" + encodeURIComponent(subject) +
-        "&body=" + encodeURIComponent(body);
+        const mailtoLink = 
+          "mailto:" + recipient +
+          "?subject=" + encodeURIComponent(subject) +
+          "&body=" + encodeURIComponent(body);
       
-      window.location.href = mailtoLink;
+        window.location.href = mailtoLink;
+    
+      });
+
     });
   </script>
 </body>
