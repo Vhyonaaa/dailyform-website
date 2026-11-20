@@ -3,19 +3,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // NAVIGATION MENU
     document.querySelectorAll("#mainNav .nav-link").forEach(function (link) {
-
         link.addEventListener("click", function () {
             const menu = document.getElementById("mainNav");
 
-            if (
-                menu &&
-                menu.classList.contains("show") &&
-                typeof bootstrap !== "undefined"
-            ) {
+            if (menu && menu.classList.contains("show")) {
                 bootstrap.Collapse.getOrCreateInstance(menu).hide();
             }
         });
-
     });
 
 
@@ -23,7 +17,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const contactForm = document.getElementById("contactForm");
 
     if (contactForm) {
-
         contactForm.addEventListener("submit", function (event) {
 
             event.preventDefault();
@@ -38,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
 
-            const recipient = "hello@examplewebsite142.com";
+            const recipient = "vssacluti@up.edu.ph";
 
             const body =
                 "Name: " + name + "\n" +
@@ -51,9 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 "&body=" + encodeURIComponent(body);
 
             window.location.href = mailtoLink;
-
         });
-
     }
 
 });
