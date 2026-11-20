@@ -6,19 +6,21 @@ document.addEventListener("DOMContentLoaded", function () {
         link.addEventListener("click", function () {
             const menu = document.getElementById("mainNav");
 
-            if (menu && menu.classList.contains("show")) {
+            if (
+                menu &&
+                menu.classList.contains("show") &&
+                typeof bootstrap !== "undefined"
+            ) {
                 bootstrap.Collapse.getOrCreateInstance(menu).hide();
             }
         });
     });
-
 
     // CONTACT FORM
     const contactForm = document.getElementById("contactForm");
 
     if (contactForm) {
         contactForm.addEventListener("submit", function (event) {
-
             event.preventDefault();
 
             const name = document.getElementById("fullName").value.trim();
@@ -31,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
 
-            const recipient = "vssacluti@up.edu.ph";
+            const recipient = "hello@examplewebsite142.com";
 
             const body =
                 "Name: " + name + "\n" +
